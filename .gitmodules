@@ -1,9 +1,9 @@
 [submodule "glfw"]
-	path = glfw
+	path = app_pojavlauncher/src/main/jni/glfw
 	url = https://github.com/MojoLauncher/glfw
 [submodule "mojoexec"]
-	path = mojoexec
+	path = app_pojavlauncher/src/main/jni/mojoexec
 	url = https://github.com/MojoLauncher/mojoexec
 [submodule "sdl"]
-	path = sdl
+	path = app_pojavlauncher/src/main/jni/sdl
 	url = https://github.com/MojoLauncher/MojoSDL
