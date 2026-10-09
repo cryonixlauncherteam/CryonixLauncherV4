@@ -8,25 +8,34 @@
 
     <com.kdt.mcgui.AccountSpinner
         android:id="@+id/account_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_52sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/cryonix_topbar"
+        android:paddingStart="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_8sdp"
 
         android:dropDownWidth="@dimen/_250sdp"
-        android:dropDownVerticalOffset="@dimen/_52sdp"
-        android:paddingEnd="@dimen/_52sdp"
+        android:dropDownVerticalOffset="@dimen/_48sdp"
 
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/setting_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/setting_button"
         tools:ignore="RtlSymmetry" />
     <!-- Ignore because it's  done to fit the ImageButton within spinner background -->
 
     <ImageButton
         android:id="@+id/setting_button"
-        android:layout_width="@dimen/_52sdp"
-        android:layout_height="@dimen/_52sdp"
-        android:background="?attr/selectableItemBackground"
+        android:layout_width="@dimen/_42sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:background="@drawable/cryonix_panel"
         android:src="@drawable/ic_px_sliders"
         android:scaleType="fitCenter"
-        android:paddingVertical="@dimen/_8sdp"
+        android:padding="@dimen/_10sdp"
+        android:tint="@color/primary_text"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
