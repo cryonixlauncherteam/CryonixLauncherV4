@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.22.1)
 # ------ MojoExec ------
 
 add_subdirectory(mojoexec)
+# Android's sched.h exposes cpu_set_t and CPU_* affinity macros with GNU extensions enabled.
+target_compile_definitions(mojoexec PRIVATE _GNU_SOURCE)
 
 # ------   GLFW   ------
 
