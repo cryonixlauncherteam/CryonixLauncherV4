@@ -16,7 +16,12 @@
 		app:layout_constraintBottom_toTopOf="@id/mc_version_spinner">
 		<androidx.constraintlayout.widget.ConstraintLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:background="@drawable/cryonix_panel">
 			<androidx.constraintlayout.widget.Guideline
 				android:id="@+id/center_guideline"
 				android:layout_width="0dp"
