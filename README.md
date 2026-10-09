@@ -1,92 +1,156 @@
-<H1 align="center">MojoLauncher (a.k.a. MJLauncher)</H1>
+<div align="center">
 
-<a href="./README_RU.md">Readme на русском</a>
+# ❖ CRYONIXLAUNCHER V4
 
-<img src="./app_pojavlauncher/src/main/assets/pojavlauncher.png" align="left" width="150" height="150" alt="MojoLauncher logo">
+### ⚡ Beyond Launching. Built for Performance.
 
-[![Android CI](https://github.com/MojoLauncher/MojoLauncher/workflows/Android%20CI/badge.svg)](https://github.com/MojoLauncher/MojoLauncher/actions)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/MojoLauncher/MojoLauncher)](https://github.com/MojoLauncher/MojoLauncher/actions)
-[![Discord](https://img.shields.io/discord/1365346109131722753.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/VHdwQFsaGX)
+**A next-generation Minecraft launcher for Android.**
 
-* MojoLauncher is a launcher, based on [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher), that allows you to play Minecraft: Java Edition on your Android device!
+[![Version](https://img.shields.io/badge/Version-V4-168BFF?style=for-the-badge\&logo=android\&logoColor=white)](#)
+[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge\&logo=android\&logoColor=white)](#)
+[![Language](https://img.shields.io/badge/Kotlin-Primary-7F52FF?style=for-the-badge\&logo=kotlin\&logoColor=white)](#)
+[![Status](https://img.shields.io/badge/Development-In_Progress-FFB020?style=for-the-badge)](#)
 
-* It can run almost every version of Minecraft, allowing you to use .jar only installers to install modloaders such as [Forge](https://files.minecraftforge.net/) and [Fabric](http://fabricmc.net/) and mods like [OptiFine](https://optifine.net).
+<a href="https://github.com/cryonixlauncherteam/CryonixLauncherV2">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:050A18,40:073B75,75:087EFF,100:050A18&text=CRYONIX%20V4&fontColor=FFFFFF&fontSize=58&fontAlignY=38&desc=POWER%20UP%20YOUR%20MINECRAFT%20EXPERIENCE&descSize=14&descAlignY=59&animation=fadeIn&stroke=168BFF&strokeWidth=1" width="100%" alt="Animated CryonixLauncher V4 banner"/>
+</a>
 
-## Navigation
-- [Introduction](#introduction)
-- [Getting MojoLauncher](#getting-mojolauncher)
-- [Building](#building) 
-- [Current roadmap](#current-roadmap) 
-- [License](#license) 
-- [Contributing](#contributing) 
-- [Credits & Third party components and their licenses](#credits--third-party-components-and-their-licenses-if-available)
+*Minimal design. Powerful features. A new generation.*
 
-## Introduction 
-* MojoLauncher is a Minecraft: Java Edition launcher for Android based on [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher)
-* This launcher can launch almost all available Minecraft versions ranging from rd-132211 to 26.x snapshots (including Combat Test versions). 
-* Modding via Forge and Fabric are also supported. 
+</div>
 
-## Getting MojoLauncher
+---
 
-You can get MojoLauncher via four methods:
+## ✦ About CryonixLauncher
 
-1. You can get the prebuilt app from the [releases section](http://github.com/mojolauncher/mojolauncher/releases).
+**CryonixLauncher V4** is the next step in the evolution of CryonixLauncher, focused on a modern Android experience for Minecraft Java Edition.
 
-2. You can get it from Google Play by clicking on this badge:
-[![Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=git.artdeell.mjlaunch)
+V4 aims to bring together a refined interface, flexible rendering options, instance management, account support, and performance-focused launcher features.
 
-3. You can get early builds from [Github Actions](http://github.com/mojolauncher/mojolauncher/actions).
+> Built for players who want more control over their Minecraft experience.
 
-4. You can [build](#building) from source.
-## Building   
-* Build the launcher (it will automatically download all required components)
+## ⚡ What's Coming in V4?
+
+<div align="center">
+
+| Feature                      | Description                                         |
+| :--------------------------- | :-------------------------------------------------- |
+| 🎨 **Modern UI**             | Refined dark interface with soft-blue accents       |
+| 📦 **Instance Manager**      | Organize and manage separate game instances         |
+| 🎮 **Version Selection**     | Convenient Minecraft version management             |
+| 🧩 **Mod Loader Support**    | Planned Vanilla and Fabric support                  |
+| ⚙️ **Renderer Options**      | Flexible rendering configuration where supported    |
+| 👤 **Account Management**    | Account selection and profile management            |
+| 🛠️ **Crash Assistant**      | Clearer crash logs and troubleshooting guidance     |
+| 🎯 **Cursor Customization**  | Personalize cursor appearance and behavior          |
+| 🖼️ **Skin & Cape Features** | Planned player customization features               |
+| 🚀 **Performance Focus**     | Efficient resource handling and smoother navigation |
+
+</div>
+
+*Feature availability depends on implementation and compatibility. Planned features are not necessarily available in the current build.*
+
+---
+
+## 🌌 Animated Experience
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=20&duration=2500&pause=900&color=168BFF&center=true&vCenter=true&width=600&lines=INITIALIZING+CRYONIX+V4...;PREPARING+YOUR+MINECRAFT+EXPERIENCE;BUILT+FOR+CONTROL.+DESIGNED+FOR+PLAYERS.;THE+NEXT+CHAPTER+STARTS+HERE." alt="Animated CryonixLauncher messages"/>
+
+</div>
+
+### ✨ Visual Direction
+
+* Smooth transitions and subtle entrance animations.
+* Responsive buttons and polished interaction feedback.
+* Dark surfaces with soft-blue highlights.
+* Clean cards for instances, accounts, and launch controls.
+* Minimal effects designed to keep the interface comfortable to use.
+
+## 🧱 Technology Stack
+
+| Technology      | Purpose                                 |
+| :-------------- | :-------------------------------------- |
+| **Kotlin**      | Primary Android development             |
+| **Java**        | Compatibility and supporting components |
+| **C / C++**     | Native components where required        |
+| **Gradle**      | Build automation                        |
+| **Android SDK** | Android platform integration            |
+
+## 📱 Design Philosophy
+
+CryonixLauncher V4 follows four principles:
+
+* **Simple:** Keep important actions easy to find.
+* **Smooth:** Use animations that improve feedback instead of distracting users.
+* **Flexible:** Make supported versions, instances, and settings easier to manage.
+* **Reliable:** Prioritize startup stability, clear errors, and compatibility.
+
+## 🚀 Getting Started
+
+### For Players
+
+1. Visit the project's GitHub repository.
+2. Open the Releases section when a V4 release is available.
+3. Download an official APK compatible with your device.
+4. Install it and follow the setup instructions.
+
+### For Developers
+
+1. Clone the repository.
+2. Open the project in Android Studio.
+3. Allow Gradle synchronization to finish.
+4. Configure the required Android SDK and native dependencies.
+5. Build and test the application on a compatible device.
+
+```bash
+git clone https://github.com/cryonixlauncherteam/CryonixLauncherV2.git
 ```
-./gradlew :app_pojavlauncher:assembleDebug
-```
-If you are building on Windows:
-* Replace `./gradlew` with `.\gradlew.bat`
-* Make sure `mojoexec`, `sdl`, `glfw` are symlinked into `app_pojavlauncher/src/main/jni/`
 
-## Current roadmap
-- [x] Instance system in favor of profiles
-- [x] Out-of-the box 1.21.5 support
-- [x] mrpack/CurseForge zip import
-- [x] LTW: enable compute shader/image extensions
-- [ ] LTW: resolve issues with Create
-- [ ] LTW: switch to a color-renderable format for framebuffers
-- [ ] Modpack/mod management tool
-- [ ] MMC-compatible instance import
-- [ ] Vintage Story support
-- [ ] Implement common native library standard
+*Replace the repository URL above if V4 uses a separate repository.*
 
-## Known Issues
-- Some physical mice may have very slow mouse speed
-- On Holy GL4ES, large texture atlases may be distorted (resulting in stretched/blocky textures in modpacks)
-- Probably more, that's why we have a bug tracker ;) 
+## 🗺️ Development Roadmap
 
-## License
-- MojoLauncher is licensed under [GNU LGPLv3](https://github.com/MojoLauncher/MojoLauncher/blob/v3_openjdk/LICENSE).
+* [x] Begin development of the V4 generation
+* [ ] Refine the launcher interface
+* [ ] Improve account and instance workflows
+* [ ] Integrate and validate supported rendering options
+* [ ] Improve crash reporting and diagnostics
+* [ ] Test Minecraft versions and mod-loader compatibility
+* [ ] Optimize startup, memory usage, and stability
+* [ ] Prepare a tested release build
 
-## Contributing
-Contributions are welcome! We welcome any type of contribution, not only code. For example, you can help the wiki shape up. You can help the [translation](https://crowdin.com/project/pojavlauncher) too!
+## 👨‍💻 Development Team
 
+<div align="center">
 
-Any code change to this repository should be submitted as a pull request. The description should explain what the code does and give steps to execute it.
+### ❖ CRYONIXLAUNCHER DEVELOPMENT
 
-## Third party components, licenses and sources (when applicable)
-- [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher): [GNU LGPLv3 License](https://github.com/PojavLauncherTeam/PojavLauncher/blob/v3_openjdk/LICENSE)
-- Android Support Libraries: [Apache License 2.0](https://android.googlesource.com/platform/prebuilts/maven_repo/android/+/master/NOTICE.txt).
-- [Holy GL4ES](https://github.com/artdeell/gl4es_extra_extra/): [MIT License](https://github.com/ptitSeb/gl4es/blob/master/LICENSE).<br>
-- [OpenJDK](https://github.com/PojavLauncherTeam/openjdk-multiarch-jdk8u): [GNU GPLv2 License](https://openjdk.java.net/legal/gplv2+ce.html).<br>
-- [GLFW](https://github.com/MojoLauncher/glfw): [zlib license](https://github.com/MojoLauncher/glfw/blob/glfw34/LICENSE.md)
-- [SDL](https://github.com/MojoLauncher/MojoSDL): [zlib license](https://github.com/MojoLauncher/MojoSDL/blob/main/LICENSE.txt)
-- [LWJGL2-GLFW](https://github.com/MojoLauncher/lwjgl2-glfw): 3-Clause BSD license
-- [LWJGL3](https://github.com/LWJGL/lwjgl3): [BSD-3 License](https://github.com/LWJGL/lwjgl3/blob/master/LICENSE.md).
-- [mojoexec](https://github.com/MojoLauncher/mojoexec): [MIT License](https://github.com/MojoLauncher/mojoexec/blob/master/LICENSE)
-- [Mesa 3D Graphics Library](https://gitlab.freedesktop.org/mesa/mesa): [MIT License](https://docs.mesa3d.org/license.html).
-- [pro-grade](https://github.com/pro-grade/pro-grade) (Java sandboxing security manager): [Apache License 2.0](https://github.com/pro-grade/pro-grade/blob/master/LICENSE.txt).
-- [bhook](https://github.com/bytedance/bhook) (Used for exit code trapping): [MIT license](https://github.com/bytedance/bhook/blob/main/LICENSE).
-- [Authlib-Injector](https://github.com/yushijinhun/authlib-injector) (Used for authorisation via ely.by): [AGPL-3.0](https://github.com/yushijinhun/authlib-injector/blob/develop/LICENSE).
-- [alsoft](https://github.com/kcat/openal-soft/) (Audio output library): [GNU LIBRARY GENERAL PUBLIC LICENSE](https://github.com/kcat/openal-soft/blob/master/COPYING) and [modified PFFFT](https://github.com/kcat/openal-soft/blob/master/LICENSE-pffft).
-- [oboe](https://github.com/google/oboe): [Apache License 2.0](https://github.com/google/oboe/blob/main/LICENSE).
-- Thanks to [Mineskin](https://mineskin.eu/) for providing Minecraft avatars.
+**Developer — NEKOSTRIKESG**
+
+*Created with a focus on customization, performance, and the Minecraft community.*
+
+</div>
+
+## 📜 Disclaimer
+
+CryonixLauncher is an independent project and is not an official Minecraft product. Minecraft is a trademark of Mojang Studios, which is not affiliated with this project.
+
+## ⭐ Support the Project
+
+If you are interested in CryonixLauncher V4, follow the repository for development updates and future releases.
+
+<div align="center">
+
+<a href="https://github.com/cryonixlauncherteam/CryonixLauncherV2">
+  <img src="https://img.shields.io/badge/EXPLORE-CRYONIXLAUNCHER-087EFF?style=for-the-badge&logo=github&logoColor=white" alt="Explore CryonixLauncher on GitHub"/>
+</a>
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:050A18,50:0757A6,100:050A18&height=110&section=footer" width="100%" alt="Blue animated footer"/>
+
+**CRYONIXLAUNCHER V4**
+
+</div>
