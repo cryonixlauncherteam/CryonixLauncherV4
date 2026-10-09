@@ -16,15 +16,13 @@ dependencyResolutionManagement {
 
 rootProject.name='PojavLauncher'
 include ':app_pojavlauncher'
-
 include ':forge_installer'
 include ':glfw:jni_bindings'
 include ':mojoexec:jni_bindings'
 include ':sdl:jni_bindings'
 
-// The JNI projects are Git submodules inside app_pojavlauncher/src/main/jni,
-// not sibling folders at the repository root. Map their Gradle project roots
-// explicitly so Gradle can find each jni_bindings Android library module.
-project(':glfw').projectDir = file('app_pojavlauncher/src/main/jni/glfw')
-project(':mojoexec').projectDir = file('app_pojavlauncher/src/main/jni/mojoexec')
-project(':sdl').projectDir = file('app_pojavlauncher/src/main/jni/sdl')
+// Map each included Android library project directly to the Gradle module
+// inside its checked-out Git submodule.
+project(':glfw:jni_bindings').projectDir = file('app_pojavlauncher/src/main/jni/glfw/jni_bindings')
+project(':mojoexec:jni_bindings').projectDir = file('app_pojavlauncher/src/main/jni/mojoexec/jni_bindings')
+project(':sdl:jni_bindings').projectDir = file('app_pojavlauncher/src/main/jni/sdl/jni_bindings')
