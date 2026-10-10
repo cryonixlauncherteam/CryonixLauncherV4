@@ -2,20 +2,15 @@ package com.kdt.mcgui;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 
-
 import git.artdeell.mojo.R;
-
 import fr.spse.extended_view.ExtendedButton;
 
 public class LauncherMenuButton extends ExtendedButton {
@@ -29,21 +24,22 @@ public class LauncherMenuButton extends ExtendedButton {
         setSettings();
     }
 
-
     /** Set style stuff */
     private void setSettings(){
         Resources resources = getContext().getResources();
 
-        int padding = resources.getDimensionPixelSize(R.dimen._22sdp);
+        int padding = resources.getDimensionPixelSize(R.dimen._16sdp);
         setCompoundDrawablePadding(padding);
-        setPaddingRelative(padding, 0, 0, 0);
+        setPaddingRelative(padding, 0, padding, 0);
         setGravity(Gravity.CENTER_VERTICAL);
+        setTextColor(ResourcesCompat.getColor(resources, R.color.primary_text, null));
+        setTypeface(ResourcesCompat.getFont(getContext(), R.font.noto_sans_bold));
 
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen._12ssp));
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimensionPixelSize(R.dimen._12ssp));
 
         // Set drawable size
         int[] sizes = getExtendedViewData().getSizeCompounds();
-        sizes[0] = resources.getDimensionPixelSize(R.dimen._30sdp);
+        sizes[0] = resources.getDimensionPixelSize(R.dimen._24sdp);
         getExtendedViewData().setSizeCompounds(sizes);
         postProcessDrawables();
     }

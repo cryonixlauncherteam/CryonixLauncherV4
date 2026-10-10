@@ -81,11 +81,8 @@ public class LauncherActivity extends BaseActivity {
         // The "false" value is used to stop auth method selection
         FragmentManager manager = getSupportFragmentManager();
         if(!value || manager.isStateSaved()) return false;
-        Fragment fragment = manager.findFragmentById(mFragmentView.getId());
-        // Allow starting the add account only from the main menu, should it be moved to fragment itself ?
-        if(!(fragment instanceof MainMenuFragment)) return false;
 
-        Tools.swapFragment(this, SelectAuthFragment.class, SelectAuthFragment.TAG, null);
+        Tools.swapFragment(this, net.kdt.pojavlaunch.fragments.StartupAuthFragment.class, net.kdt.pojavlaunch.fragments.StartupAuthFragment.TAG, null);
         return false;
     };
 
@@ -208,6 +205,10 @@ public class LauncherActivity extends BaseActivity {
         mProgressLayout.observe(ProgressLayout.DOWNLOAD_VERSION_LIST);
         mProgressLayout.observe(ProgressLayout.INSTANCE_INSTALL);
         mProgressLayout.observe(ProgressLayout.DATA_MIGRATION);
+
+        if (Accounts.getCurrent() == null) {
+            Tools.swapFragment(this, net.kdt.pojavlaunch.fragments.StartupAuthFragment.class, net.kdt.pojavlaunch.fragments.StartupAuthFragment.TAG, null);
+        }
     }
 
     @Override

@@ -2,19 +2,13 @@
 <fr.spse.extended_view.ExtendedTextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="?attr/selectableItemBackground"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_52sdp"
-    android:paddingStart="@dimen/_17sdp"
-    app:drawableStartSize="@dimen/_36sdp"
-    app:drawableStartIntegerScaling="true"
-
+    android:layout_height="52dp"
+    android:background="?attr/selectableItemBackground"
+    android:drawablePadding="14dp"
     android:gravity="center_vertical"
-    android:drawablePadding="@dimen/_19sdp"
-    tools:drawableStart="@drawable/ic_gamepad_pointer"
-    tools:text="FORGE - Forge-1.7.10-1664"
-    tools:ignore="RtlSymmetry">
-
-
-</fr.spse.extended_view.ExtendedTextView>
+    android:paddingHorizontal="16dp"
+    android:textColor="@color/primary_text"
+    android:textSize="14sp"
+    app:drawableStartIntegerScaling="true"
+    app:drawableStartSize="28dp" />

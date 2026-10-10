@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_short_name">MJLauncher</string>
+    <string name="app_name">CryonixLauncher V4</string>
+    <string name="app_short_name">Cryonix</string>
 
     <!-- Action bar part -->
 
@@ -520,4 +521,6 @@
     <string name="preference_button_transparency">Buttons transparency</string>
     <string name="preference_button_transparency_summary">Changes on-screen buttons transparency</string>
     <string name="main_please_restart">Please restart the game from the launcher homescreen</string>
+    <string name="instances">Instances</string>
+    <string name="mcl_tab_home">Home</string>
 </resources>

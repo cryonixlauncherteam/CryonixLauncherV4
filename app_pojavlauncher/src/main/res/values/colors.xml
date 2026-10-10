@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="control_button_color">#4CC4C4C4</color>
-    <color name="control_button_pressed_color">#4D000000</color>
+    <!-- Cryonix Aurora Palette -->
+    <color name="background_app">#080D17</color>
+    <color name="background_secondary">#0D1626</color>
+    <color name="background_card">#101D32</color>
+    <color name="elevated_surface">#162640</color>
 
-    <color name="minebutton_color">#91dffb</color>
-    <color name="background_app">#181818</color>
-    <color name="divider">@color/background_overlay</color>
-    <color name="background_overlay">#464646</color>
-    <color name="background_status_bar">#242424</color>
-    <color name="background_bottom_bar">#232323</color>
-    <color name="icon_outline_color">#FFFFFF</color>
+    <color name="primary_accent">#348BFF</color>
+    <color name="secondary_accent">#65A7FF</color>
+    <color name="primary_accent_pressed">#2471E0</color>
 
-    <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#B2B2B2</color>
+    <color name="primary_text">#F5F7FC</color>
+    <color name="secondary_text">#A1B2CC</color>
+    <color name="tertiary_text">#657896</color>
+
+    <color name="divider">#243C5D</color>
+    <color name="background_overlay">#243C5D</color>
+    <color name="background_status_bar">#080D17</color>
+    <color name="background_bottom_bar">#0D1626</color>
+    <color name="icon_outline_color">#F5F7FC</color>
+
+    <color name="success_color">#35D6A0</color>
+    <color name="warning_color">#F3BB62</color>
+    <color name="error_color">#F07880</color>
+
+    <color name="minebutton_color">#F5F7FC</color>
+    <color name="minebutton_text_color">#101827</color>
+    <color name="minebutton_pressed_color">#D0D8E8</color>
+    <color name="minebutton_disabled_color">#44F5F7FC</color>
+
+    <color name="control_button_color">#33348BFF</color>
+    <color name="control_button_pressed_color">#66348BFF</color>
+
+    <!-- Additional Palette Colors -->
+    <color name="card_border">#243C5D</color>
+    <color name="card_border_focused">#348BFF</color>
+    <color name="chip_bg">#162640</color>
+    <color name="input_bg">#0D1626</color>
 </resources>
