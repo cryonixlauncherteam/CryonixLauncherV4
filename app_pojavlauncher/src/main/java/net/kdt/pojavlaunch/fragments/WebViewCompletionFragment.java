@@ -15,7 +15,7 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import git.neko.cryonixlauncher.R;
+import git.artdeell.mojo.R;
 
 public abstract class WebViewCompletionFragment extends Fragment {
     private final String mTrackedUrl;

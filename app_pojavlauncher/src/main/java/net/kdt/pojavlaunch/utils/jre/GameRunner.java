@@ -43,6 +43,8 @@ import java.util.Map;
 import git.artdeell.mojo.R;
 
 public class GameRunner {
+    public static String sQuickPlayServerHost;
+    public static int sQuickPlayServerPort;
     /**
      * Optimization mods based on Sodium can mitigate the render distance issue. Check if Sodium
      * or its derivative is currently installed to skip the render distance check.

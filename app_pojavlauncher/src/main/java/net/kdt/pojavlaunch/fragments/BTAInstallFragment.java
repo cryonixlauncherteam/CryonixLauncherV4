@@ -1,3 +1,5 @@
+package net.kdt.pojavlaunch.fragments;
+
 import git.artdeell.mojo.R;
 
 import android.content.Context;

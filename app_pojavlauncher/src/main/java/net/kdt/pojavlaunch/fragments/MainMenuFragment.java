@@ -29,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kdt.mcgui.mcVersionSpinner;
 
 import net.kdt.pojavlaunch.CustomControlsActivity;
-import git.neko.cryonixlauncher.R;
+import git.artdeell.mojo.R;
 
 import net.kdt.pojavlaunch.LauncherActivity;
 import net.kdt.pojavlaunch.Tools;
@@ -295,9 +295,6 @@ public class MainMenuFragment extends Fragment {
     private void attachTouchFeedback(View view, View.OnClickListener listener) {
         if (view == null) return;
         view.setOnTouchListener((v, event) -> {
-            if (!net.kdt.pojavlaunch.prefs.LauncherPreferences.PREF_ANIMATIONS_ENABLED) {
-                return false;
-            }
             switch (event.getActionMasked()) {
                 case MotionEvent.ACTION_DOWN:
                     v.animate().cancel();
