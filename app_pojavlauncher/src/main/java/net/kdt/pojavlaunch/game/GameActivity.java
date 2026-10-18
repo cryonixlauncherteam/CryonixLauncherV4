@@ -45,6 +45,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.kdt.LoggerView;
 
 import net.kdt.pojavlaunch.BaseActivity;
+import net.kdt.pojavlaunch.DiscordPresenceService;
 import net.kdt.pojavlaunch.CallbackBridge;
 import net.kdt.pojavlaunch.game.renderer.GameRenderer;
 import net.kdt.pojavlaunch.utils.GpuUtils;
