@@ -364,9 +364,17 @@ public class GameActivity extends BaseActivity implements ControlButtonMenuListe
 
     @Override
     protected void onDestroy() {
-        DiscordPresenceService.update(this, DiscordPresenceService.ACTION_BROWSING, null);
         super.onDestroy();
         ContextExecutor.clearActivity();
+
+        // Delay the browsing update so it wins over any stale CLEAR event
+        // emitted during the game-to-launcher lifecycle transition.
+        final Context appContext = getApplicationContext();
+        Tools.MAIN_HANDLER.postDelayed(
+                () -> DiscordPresenceService.update(
+                        appContext, DiscordPresenceService.ACTION_BROWSING, null),
+                700L
+        );
     }
 
     @Override
