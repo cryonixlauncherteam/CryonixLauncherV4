@@ -72,9 +72,14 @@ jobs:
           APK="out/app-debug-full.apk"
           test -s "$APK"
           unzip -t "$APK"
-          SDK_ROOT="\${ANDROID_SDK_ROOT:-\${ANDROID_HOME:-$HOME/Android/Sdk}}"
-          BUILD_TOOLS="$(find "$SDK_ROOT/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -n 1)"
-          test -n "$BUILD_TOOLS"
+          SDK_ROOT="${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}"
+          if [ ! -d "$SDK_ROOT/build-tools" ]; then SDK_ROOT="$HOME/Android/Sdk"; fi
+          BUILD_TOOLS="$(find "$SDK_ROOT/build-tools" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | sort -V | tail -n 1)"
+          if [ -z "$BUILD_TOOLS" ]; then
+            echo "Android SDK build-tools not found under $SDK_ROOT"
+            find /usr/local/lib/android /opt/android-sdk "$HOME/Android/Sdk" -maxdepth 3 -type d -name build-tools 2>/dev/null || true
+            exit 1
+          fi
           "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$APK"
           "$BUILD_TOOLS/aapt" dump badging "$APK" | tee out/apk-badging.txt
           grep -q "package: name='git.artdeell.mjlaunch.debug'" out/apk-badging.txt
