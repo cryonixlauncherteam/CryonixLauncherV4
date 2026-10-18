@@ -34,6 +34,9 @@ extern "C" JNIEXPORT void JNICALL
 Java_net_kdt_pojavlaunch_DiscordPresenceService_nativeUpdatePresence(
         JNIEnv* env, jclass, jstring details, jstring state) {
     discordpp::Activity activity{};
+    // Explicitly override the activity's displayed title instead of relying on
+    // the SDK's default application-name resolution (which was showing "Game").
+    activity.SetName("CryonixLauncher");
     activity.SetDetails(fromJavaString(env, details));
     activity.SetState(fromJavaString(env, state));
 
