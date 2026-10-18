@@ -36,6 +36,12 @@ target_link_libraries(SDL3-shared PRIVATE mojoexec)
 
 project("MojoLauncher")
 
+find_package(discord_partner_sdk REQUIRED CONFIG)
+
+add_library(discord_presence SHARED discord_presence.cpp)
+target_compile_features(discord_presence PRIVATE cxx_std_20)
+target_link_libraries(discord_presence PRIVATE discord_partner_sdk::discord_partner_sdk log)
+
 add_library(pojavexec SHARED
         affinity.c
         jvm_hooks/emui_iterator_fix_hook.c
