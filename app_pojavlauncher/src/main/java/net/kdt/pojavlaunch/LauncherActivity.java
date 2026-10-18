@@ -161,6 +161,8 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        com.discord.socialsdk.DiscordSocialSdkInit.setEngineActivity(this);
+        DiscordPresenceService.update(this, DiscordPresenceService.ACTION_BROWSING, null);
         setContentView(R.layout.activity_pojav_launcher);
         MoJsonDownloader.prepareSubstitutionMap(getAssets());
 
@@ -214,6 +216,8 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        com.discord.socialsdk.DiscordSocialSdkInit.setEngineActivity(this);
+        DiscordPresenceService.update(this, DiscordPresenceService.ACTION_BROWSING, null);
         ContextExecutor.setActivity(this);
         InstanceInstaller.postInstallCheck(this);
     }
@@ -232,6 +236,9 @@ public class LauncherActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        if (isFinishing()) {
+            DiscordPresenceService.update(this, DiscordPresenceService.ACTION_CLEAR, null);
+        }
         super.onDestroy();
         mProgressLayout.cleanUpObservers();
         ProgressKeeper.removeTaskCountListener(mProgressLayout);
