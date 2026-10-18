@@ -10,9 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     env:
-      UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.UPLOAD_NEXT_KEYSTORE_PASSWORD }}
-      MOJOPUB_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_NEXT_KEYSTORE_PASSWORD }}
-      CURSEFORGE_API_KEY: ${{ secrets.CURSEFORGE_API_KEY }}
+      UPLOAD_KEYSTORE_PASSWORD: \${{ secrets.UPLOAD_NEXT_KEYSTORE_PASSWORD }}
+      MOJOPUB_KEYSTORE_PASSWORD: \${{ secrets.RELEASE_NEXT_KEYSTORE_PASSWORD }}
+      CURSEFORGE_API_KEY: \${{ secrets.CURSEFORGE_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -30,10 +30,10 @@ jobs:
           path: app_pojavlauncher/libs
 
       - name: Get Mesa
-        uses: dawidd6/action-download-artifact@v6  
+        uses: dawidd6/action-download-artifact@v6
         continue-on-error: true
         with:
-          github_token: ${{ secrets.MESA_ACTIONS }}
+          github_token: \${{ secrets.MESA_ACTIONS }}
           repo: MojoLauncher/mesa-unified2
           workflow: android.yml
           workflow_conclusion: success
@@ -50,8 +50,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
       - name: Create out directory
         run: mkdir out
+
       - name: Build Publishing .aab
         if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
         run: |
@@ -60,7 +62,6 @@ jobs:
 
       - name: Build Debug .apk
         run: |
-          # Build the launcher
           gradle :app_pojavlauncher:assembleFullDebug
           mv app_pojavlauncher/build/outputs/apk/full/debug/app_pojavlauncher-full-debug.apk out/app-debug-full.apk
 
@@ -71,21 +72,29 @@ jobs:
           APK="out/app-debug-full.apk"
           test -s "$APK"
           unzip -t "$APK"
-          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-$HOME/Android/Sdk}}"
+          SDK_ROOT="\${ANDROID_SDK_ROOT:-\${ANDROID_HOME:-$HOME/Android/Sdk}}"
           BUILD_TOOLS="$(find "$SDK_ROOT/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -n 1)"
           test -n "$BUILD_TOOLS"
           "$BUILD_TOOLS/apksigner" verify --verbose --print-certs "$APK"
           "$BUILD_TOOLS/aapt" dump badging "$APK" | tee out/apk-badging.txt
           grep -q "package: name='git.artdeell.mjlaunch.debug'" out/apk-badging.txt
           grep -q "sdkVersion:'21'" out/apk-badging.txt
-          unzip -Z1 "$APK" | grep -E '^lib/[^/]+/[^/]+\\.so        run: |
+          unzip -Z1 "$APK" | tee out/apk-file-list.txt
+          grep -q '^lib/arm64-v8a/' out/apk-file-list.txt
+          cp "$APK" out/CryonixLauncher-V4-Debug.apk
+          sha256sum out/CryonixLauncher-V4-Debug.apk | tee out/CryonixLauncher-V4-Debug.sha256
+
+      - name: Build Debug .apk (No runtime)
+        run: |
           gradle :app_pojavlauncher:assembleNoruntimeDebug
           mv app_pojavlauncher/build/outputs/apk/noruntime/debug/app_pojavlauncher-noruntime-debug.apk out/app-debug-noruntime.apk
+
       - name: Build Nightly Release .apk
         if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
         run: |
           gradle :app_pojavlauncher:assembleFullPubRelease
           mv app_pojavlauncher/build/outputs/apk/full/pubRelease/app_pojavlauncher-full-pubRelease.apk out/MojoLauncher-release.apk
+
       - name: Gen md5sums
         run: |
           md5sum out/CryonixLauncher-V4-Debug.apk > out/CryonixLauncher-V4-Debug.md5
@@ -115,7 +124,7 @@ jobs:
           tag_name: nightly
           body: |
             MojoLauncher nightly build.
-            Commit hash: ${{ github.sha }}
+            Commit hash: \${{ github.sha }}
           files: |
             out/MojoLauncher-release.apk
 
@@ -130,67 +139,7 @@ jobs:
         if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
         uses: r0adkll/upload-google-play@v1.1.5
         with:
-          serviceAccountJsonPlainText: ${{ secrets.SERVICE_JSON }}
-          packageName: git.artdeell.mjlaunch
-          releaseFiles: out/app-gplay.aab
-          track: internal
-          inAppUpdatePriority: 5
- | sort -u | tee out/native-libraries.txt
-          grep -q '^lib/arm64-v8a/' out/native-libraries.txt
-          cp "$APK" out/CryonixLauncher-V4-Debug.apk
-          sha256sum out/CryonixLauncher-V4-Debug.apk | tee out/CryonixLauncher-V4-Debug.sha256
-
-      - name: Build Debug .apk (No runtime)
-        run: |
-          gradle :app_pojavlauncher:assembleNoruntimeDebug
-          mv app_pojavlauncher/build/outputs/apk/noruntime/debug/app_pojavlauncher-noruntime-debug.apk out/app-debug-noruntime.apk
-      - name: Build Nightly Release .apk
-        if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
-        run: |
-          gradle :app_pojavlauncher:assembleFullPubRelease
-          mv app_pojavlauncher/build/outputs/apk/full/pubRelease/app_pojavlauncher-full-pubRelease.apk out/MojoLauncher-release.apk
-      - name: Gen md5sums
-        run: |
-          md5sum out/CryonixLauncher-V4-Debug.apk > out/CryonixLauncher-V4-Debug.md5
-          md5sum out/app-debug-noruntime.apk > out/app-debug-noruntime.md5
-
-      - name: Upload Debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug
-          path: out/app-debug-full.apk
-
-      - name: Upload Debug APK (No runtime)
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug-noruntime
-          path: out/app-debug-noruntime.apk
-
-      - name: Release Nightly APK
-        if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
-        uses: softprops/action-gh-release@v3
-        with:
-          name: MojoLauncher Nightly Builds
-          prerelease: true
-          tag_name: nightly
-          body: |
-            MojoLauncher nightly build.
-            Commit hash: ${{ github.sha }}
-          files: |
-            out/MojoLauncher-release.apk
-
-      - name: Upload AAB
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release-aab
-          path: out/app-gplay.aab
-
-      - name: Upload onto the Google Play testing track
-        continue-on-error: true
-        if: github.repository_owner == 'MojoLauncher' && github.ref_name == 'v3_openjdk'
-        uses: r0adkll/upload-google-play@v1.1.5
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.SERVICE_JSON }}
+          serviceAccountJsonPlainText: \${{ secrets.SERVICE_JSON }}
           packageName: git.artdeell.mjlaunch
           releaseFiles: out/app-gplay.aab
           track: internal
