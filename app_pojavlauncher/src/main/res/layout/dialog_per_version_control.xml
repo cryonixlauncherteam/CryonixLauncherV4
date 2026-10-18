@@ -1,63 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_optimizationLevel="standard|dimensions|chains">
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:text="Per-Version Configuration"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- JVM Args -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/pvc_jvmArgs"
+            android:textColor="@color/secondary_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/pvc_jvmArgs"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_input"
             android:hint="@string/pvc_jvmArgs"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:inputType="text"
+            android:paddingHorizontal="12dp"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/tertiary_text"
+            android:textSize="13sp" />
+
+        <!-- Custom Directory -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/pvc_gameDirectory"
+            android:textColor="@color/secondary_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/pvc_customDir"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_input"
             android:hint="@string/pvc_gameDirectory"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pvc_jvmArgs" />
+            android:inputType="text"
+            android:paddingHorizontal="12dp"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/tertiary_text"
+            android:textSize="13sp" />
+
+        <!-- Java VM -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/pedit_java_runtime"
+            android:textColor="@color/secondary_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/pvc_javaVm"
             android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_input"
+            android:paddingHorizontal="12dp" />
+
+        <!-- Renderer -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pvc_customDir" />
+            android:layout_marginBottom="4dp"
+            android:text="@string/pedit_renderer"
+            android:textColor="@color/secondary_text"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/pvc_renderer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pvc_javaVm" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="44dp"
+            android:background="@drawable/bg_input"
+            android:paddingHorizontal="12dp" />
+
+    </LinearLayout>
 </ScrollView>

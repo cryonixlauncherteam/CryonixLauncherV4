@@ -1,53 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/background_app">
+    android:background="@color/background_app"
+    android:padding="8dp">
 
+    <!-- Top Navigation Bar -->
     <LinearLayout
+        android:id="@+id/settings_top_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
+        <ImageButton
             android:id="@+id/settings_back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back" />
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/preference_back_title"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_px_arrow_left"
+            app:tint="@color/primary_text" />
 
-        <Button
-            android:id="@+id/settings_home_button"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Home" />
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/settings_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SETTINGS"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cryonix Launcher V4 Preferences"
+                android:textColor="@color/secondary_text"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/settings_home_button"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/mcl_tab_home"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_px_home"
+            app:tint="@color/primary_text" />
     </LinearLayout>
 
+    <!-- Top Category Scroll Bar (Portrait) -->
     <HorizontalScrollView
+        android:id="@+id/settings_category_sidebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="false"
-        android:scrollbars="none">
+        android:layout_marginTop="8dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/settings_top_bar">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button android:id="@+id/cat_video_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Video" />
-            <Button android:id="@+id/cat_controls_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Controls" />
-            <Button android:id="@+id/cat_java_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Java" />
-            <Button android:id="@+id/cat_misc_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Misc" />
-            <Button android:id="@+id/cat_experimental_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Experimental" />
+            <com.kdt.mcgui.LauncherMenuButton
+                android:id="@+id/cat_general_button"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/cryonix_settings_item"
+                android:drawableStart="@drawable/ic_px_alt_sliders"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:text="General"
+                android:textColor="@color/primary_text"
+                android:textSize="11sp" />
+
+            <com.kdt.mcgui.LauncherMenuButton
+                android:id="@+id/cat_video_button"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/cryonix_settings_item"
+                android:drawableStart="@drawable/ic_px_image"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:text="@string/preference_video_title"
+                android:textColor="@color/primary_text"
+                android:textSize="11sp" />
+
+            <com.kdt.mcgui.LauncherMenuButton
+                android:id="@+id/cat_controls_button"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/cryonix_settings_item"
+                android:drawableStart="@drawable/ic_px_gamepad"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:text="@string/preference_control_title"
+                android:textColor="@color/primary_text"
+                android:textSize="11sp" />
+
+            <com.kdt.mcgui.LauncherMenuButton
+                android:id="@+id/cat_java_button"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/cryonix_settings_item"
+                android:drawableStart="@drawable/ic_px_java"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:text="@string/preference_java_title"
+                android:textColor="@color/primary_text"
+                android:textSize="11sp" />
+
+            <com.kdt.mcgui.LauncherMenuButton
+                android:id="@+id/cat_misc_button"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/cryonix_settings_item"
+                android:drawableStart="@drawable/ic_px_folder"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:text="@string/preference_misc_title"
+                android:textColor="@color/primary_text"
+                android:textSize="11sp" />
+
+            <com.kdt.mcgui.LauncherMenuButton
+                android:id="@+id/cat_experimental_button"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:background="@drawable/cryonix_settings_item"
+                android:drawableStart="@drawable/ic_px_experiment"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:text="Experimental"
+                android:textColor="@color/primary_text"
+                android:textSize="11sp" />
         </LinearLayout>
     </HorizontalScrollView>
 
+    <!-- Preference Content Card -->
     <FrameLayout
-        android:id="@+id/preference_fragment_container"
+        android:id="@+id/settings_content_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-</LinearLayout>
+        android:layout_marginTop="8dp"
+        android:background="@drawable/cryonix_settings_panel"
+        android:padding="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_category_sidebar">
+
+        <FrameLayout
+            android:id="@+id/preference_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

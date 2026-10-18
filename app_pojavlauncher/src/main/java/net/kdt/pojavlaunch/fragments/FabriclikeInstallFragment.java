@@ -28,6 +28,7 @@ import net.kdt.pojavlaunch.modloaders.FabricVersion;
 import net.kdt.pojavlaunch.modloaders.ModloaderDownloadListener;
 import net.kdt.pojavlaunch.modloaders.ModloaderListenerProxy;
 import net.kdt.pojavlaunch.modloaders.modpacks.SelfReferencingFuture;
+import net.kdt.pojavlaunch.utils.JellyAnimations;
 import net.kdt.pojavlaunch.progresskeeper.ProgressKeeper;
 
 import java.io.File;
@@ -82,6 +83,9 @@ public abstract class FabriclikeInstallFragment extends Fragment implements Modl
             proxy.attachListener(this);
         }
         updateGameVersions();
+
+        JellyAnimations.animateScreen(view);
+        JellyAnimations.attachTouchFeedback(view);
     }
 
     @Override

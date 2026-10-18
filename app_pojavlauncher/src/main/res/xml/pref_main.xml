@@ -1,74 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app2="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    app:key=""
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <net.kdt.pojavlaunch.prefs.BackButtonPreference/>
 
     <PreferenceCategory
-        android:title="@string/preference_category_main_categories"
-        >
+        app:layout="@layout/cryonix_preference_category"
+        android:title="@string/preference_category_main_categories">
 
         <Preference
+            app:layout="@layout/cryonix_preference_item"
             android:key="video_screen_setting"
             android:title="@string/preference_video_title"
             android:summary="@string/preference_video_description"
             android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceVideoFragment"
-            android:icon="@drawable/ic_px_image"
-            />
+            android:icon="@drawable/ic_px_image" />
 
         <Preference
+            app:layout="@layout/cryonix_preference_item"
             android:key="control_screen_setting"
             android:title="@string/preference_control_title"
             android:summary="@string/preference_control_description"
             android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceControlFragment"
-            android:icon="@drawable/ic_px_gamepad"
-            />
+            android:icon="@drawable/ic_px_gamepad" />
 
         <Preference
+            app:layout="@layout/cryonix_preference_item"
             android:key="java_screen_setting"
             android:title="@string/preference_java_title"
             android:summary="@string/preference_java_description"
             android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceJavaFragment"
-            android:icon="@drawable/ic_px_java"
-            />
+            android:icon="@drawable/ic_px_java" />
 
         <Preference
+            app:layout="@layout/cryonix_preference_item"
             android:key="misc_screen_setting"
             android:title="@string/preference_misc_title"
             android:summary="@string/preference_misc_description"
             android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceMiscellaneousFragment"
-            android:icon="@drawable/ic_px_alt_sliders"
-            />
-
+            android:icon="@drawable/ic_px_folder" />
 
         <Preference
+            app:layout="@layout/cryonix_preference_item"
             android:key="experimental_screen_setting"
             android:title="@string/preference_experimental_title"
             android:summary="@string/preference_experimental_description"
             android:fragment="net.kdt.pojavlaunch.prefs.screens.LauncherPreferenceExperimentalFragment"
-            android:icon="@drawable/ic_px_experiment"/>
+            android:icon="@drawable/ic_px_experiment" />
     </PreferenceCategory>
 
-    <SwitchPreference
-        android:title="@string/preference_force_english_title"
-        android:key="force_english"
-        android:summary="@string/preference_force_english_description"
-        android:icon="@drawable/ic_px_translate"/>
+    <PreferenceCategory
+        app:layout="@layout/cryonix_preference_category"
+        android:title="General Preferences">
 
-    <Preference
-        android:title="@string/preference_ask_for_notification_title"
-        android:summary="@string/preference_ask_for_notification_description"
-        android:key="notification_permission_request"
-        android:icon="@drawable/ic_px_bell"
-        />
+        <SwitchPreference
+            app:layout="@layout/cryonix_preference_item"
+            android:title="@string/preference_force_english_title"
+            android:key="force_english"
+            android:summary="@string/preference_force_english_description"
+            android:icon="@drawable/ic_px_translate" />
 
+        <Preference
+            app:layout="@layout/cryonix_preference_item"
+            android:title="@string/preference_ask_for_notification_title"
+            android:summary="@string/preference_ask_for_notification_description"
+            android:key="notification_permission_request"
+            android:icon="@drawable/ic_px_bell" />
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        app:layout="@layout/cryonix_preference_category"
+        android:title="About Cryonix Launcher V4">
 
+        <Preference
+            app:layout="@layout/cryonix_preference_item"
+            android:key="about_app_version"
+            android:title="Launcher Version"
+            android:summary="CryonixLauncherV4"
+            android:icon="@drawable/ic_px_sparkles" />
 
+        <Preference
+            app:layout="@layout/cryonix_preference_item"
+            android:key="about_device_info"
+            android:title="System &amp; Hardware Diagnostics"
+            android:summary="Loading system specs..."
+            android:icon="@drawable/ic_px_console" />
+
+        <Preference
+            app:layout="@layout/cryonix_preference_item"
+            android:key="about_credits"
+            android:title="Cryonix Launcher V4 Team"
+            android:summary="Based on PojavLauncher &amp; Open Source Projects"
+            android:icon="@drawable/ic_px_book" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

@@ -13,31 +13,51 @@ import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.instances.Instance;
 import net.kdt.pojavlaunch.instances.Instances;
 import net.kdt.pojavlaunch.instances.InstanceIconProvider;
+import net.kdt.pojavlaunch.utils.JellyAnimations;
+
 import java.io.IOException;
 
-
 public class DeleteConfirmDialogFragment extends DialogFragment {
+    public static String TAG = "delete_dialog_confirm";
     private final Instance mInstance = Instances.loadSelectedInstance();
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        if (mInstance == null) dismiss();
-        return new AlertDialog.Builder(requireContext())
+        if (mInstance == null) {
+            dismiss();
+        }
+
+        String instanceName = mInstance != null && mInstance.name != null ? mInstance.name : "Selected Instance";
+        String message = getString(R.string.instance_delete_confirmation) + "\n\nInstance: " + instanceName;
+
+        return new AlertDialog.Builder(requireContext(), R.style.CryonixDialogTheme)
                 .setTitle(R.string.instance_delete)
-                .setMessage(R.string.instance_delete_confirmation)
+                .setMessage(message)
                 .setPositiveButton(R.string.global_delete, (dialog, which) -> {
                     if (mInstance == null) return;
                     InstanceIconProvider.dropIcon(mInstance);
-                    Tools.removeCurrentFragment(requireActivity());
                     try {
                         Instances.removeInstance(mInstance);
                     } catch (IOException e) {
                         Tools.showErrorRemote(e);
                     }
+                    androidx.fragment.app.Fragment parentFrag = getParentFragment();
+                    if (parentFrag instanceof MainMenuFragment) {
+                        ((MainMenuFragment) parentFrag).onResume();
+                    } else {
+                        Tools.removeCurrentFragment(requireActivity());
+                    }
                 })
                 .setNegativeButton(R.string.global_no, null)
                 .create();
     }
-    public static String TAG = "delete_dialog_confirm";
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (getDialog() != null) {
+            JellyAnimations.animateDialog(getDialog());
+        }
+    }
 }

@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import git.artdeell.mojo.R;
+import net.kdt.pojavlaunch.utils.JellyAnimations;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
@@ -126,6 +127,15 @@ public class InstanceEditorFragment extends Fragment implements CropperUtils.Cro
         }else {
             loadValues(selectedInstance, context);
         }
+
+        View backBtn = view.findViewById(R.id.vprof_editor_back);
+        if (backBtn != null) {
+            backBtn.setOnClickListener(v -> Tools.backToMainMenu(requireActivity()));
+        }
+
+        JellyAnimations.animateScreen(view);
+        JellyAnimations.attachTouchFeedback(view);
+        JellyAnimations.pressFeedback(mSaveButton, mDeleteButton, mControlSelectButton, mVersionSelectButton, backBtn);
     }
 
     private View.OnClickListener getControlSelectListener() {
@@ -153,6 +163,14 @@ public class InstanceEditorFragment extends Fragment implements CropperUtils.Cro
         mInstanceIcon.setImageDrawable(
                 InstanceIconProvider.fetchIcon(getResources(), instance)
         );
+
+        View fragmentView = getView();
+        if (fragmentView != null) {
+            TextView subTitle = fragmentView.findViewById(R.id.vprof_editor_sub_title);
+            if (subTitle != null && instance.name != null && !instance.name.isEmpty()) {
+                subTitle.setText(instance.name + " (" + (instance.versionId != null ? instance.versionId : "Unknown") + ")");
+            }
+        }
 
         // Runtime spinner
         List<Runtime> runtimes = MultiRTUtils.getRuntimes();

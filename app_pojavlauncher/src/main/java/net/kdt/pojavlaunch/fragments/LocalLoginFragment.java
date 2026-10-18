@@ -11,8 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.Tools;
+import net.kdt.pojavlaunch.authenticator.accounts.Account;
+import net.kdt.pojavlaunch.authenticator.accounts.Accounts;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
+import net.kdt.pojavlaunch.utils.JellyAnimations;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,13 +41,24 @@ public class LocalLoginFragment extends Fragment {
                 return;
             }
 
-            ExtraCore.setValue(ExtraConstants.MOJANG_LOGIN_TODO, new String[]{
-                    mUsernameEditText.getText().toString(), "" });
+            String username = mUsernameEditText.getText().toString().trim();
+            if (username.isEmpty()) username = "CryonixUser";
 
+            try {
+                final String finalUser = username;
+                Account account = Accounts.create(acc -> acc.username = finalUser);
+                Accounts.setCurrent(account);
+            } catch (Exception e) {
+                Tools.showError(v.getContext(), e);
+            }
+
+            ExtraCore.setValue(ExtraConstants.MOJANG_LOGIN_TODO, new String[]{ username, "" });
             Tools.swapFragment(requireActivity(), MainMenuFragment.class, MainMenuFragment.TAG, null);
         });
-    }
 
+        JellyAnimations.animateScreen(view);
+        JellyAnimations.attachTouchFeedback(view);
+    }
 
     /** @return Whether the mail (and password) text are eligible to make an auth request  */
     private boolean checkEditText(){

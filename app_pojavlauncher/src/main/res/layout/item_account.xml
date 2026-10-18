@@ -4,18 +4,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="52dp"
-    android:layout_marginVertical="2dp"
+    android:layout_marginVertical="3dp"
     android:background="@drawable/bg_card_elevated"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingHorizontal="12dp">
+    android:paddingHorizontal="14dp">
 
     <fr.spse.extended_view.ExtendedTextView
         android:id="@+id/account_item"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:drawablePadding="10dp"
+        android:drawablePadding="12dp"
         android:gravity="center_vertical"
         android:textColor="@color/primary_text"
         android:textSize="14sp"

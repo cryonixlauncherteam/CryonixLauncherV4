@@ -20,6 +20,7 @@ import git.artdeell.mojo.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.extra.ExtraConstants;
 import net.kdt.pojavlaunch.extra.ExtraCore;
+import net.kdt.pojavlaunch.utils.JellyAnimations;
 
 import java.io.File;
 public class FileSelectorFragment extends Fragment {
@@ -88,6 +89,9 @@ public class FileSelectorFragment extends Fragment {
                 Tools.removeCurrentFragment(requireActivity());
             }
         });
+
+        JellyAnimations.animateScreen(view);
+        JellyAnimations.attachTouchFeedback(view);
     }
 
     private String removeLockPath(String path){

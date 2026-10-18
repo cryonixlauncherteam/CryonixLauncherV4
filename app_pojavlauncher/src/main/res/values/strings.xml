@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- App name part -->
-    <string name="app_name">CryonixLauncher V4</string>
-    <string name="app_short_name">Cryonix</string>
+    <string name="app_name">Cryonix Launcher</string>
+    <string name="app_short_name">Cryonix Launcher</string>
+    <string name="coming_soon_v41">Coming soon in v4.1</string>
+    <string name="preference_appearance_title">Appearance Preferences</string>
 
     <!-- Action bar part -->
 
@@ -22,7 +24,7 @@
     <string name="alerttitle_installmod">Select a mod installer</string>
 
     <!-- Error messages -->
-    <string name="error_fatal">MJLauncher has unexpectedly crashed</string>
+    <string name="error_fatal">Cryonix Launcher has unexpectedly crashed</string>
     <string name="error_no_version">No version!</string>
     <string name="error_show_more">Show more</string>
     <string name="error_show_less">Show less</string>
@@ -246,7 +248,7 @@
     <string name="color_default_hex" translatable="false">FFFF0000</string>
     <string name="notif_channel_name">General</string>
     <string name="notif_channel_id" translatable="false">channel_id</string>
-    <string name="lazy_service_default_title">MJ Foreground Service</string>
+    <string name="lazy_service_default_title">Cryonix Launcher Running...</string>
     <string name="mcl_setting_veroption_installed">Installed</string>
     <string name="use_global_default">(Use global default)</string>
     <string name="default_control">Default controlmap</string>
@@ -276,7 +278,7 @@
     <string name="preference_gyro_sample_rate_title">Gyroscope sampling rate</string>
     <string name="preference_gyro_sample_rate_description">If you have performance issues with gyroscope controls, increase this.</string>
     <string name="microsoft_login_retry_later">Too many requests, please try again later.</string>
-    <string name="storage_required">MJLauncher requires external storage to be attached. Please reconnect it and restart the app.</string>
+    <string name="storage_required">Cryonix Launcher requires external storage to be attached. Please reconnect it and restart the app.</string>
     <string name="mcl_setting_title_buttonallcaps">Only use capital letters in button labels</string>
     <string name="mcl_setting_subtitle_buttonallcaps">Disable this if you want to use lowercase letters in your controls.</string>
     <string name="create_instance">Create new instance</string>
@@ -348,7 +350,7 @@
     <string name="modpack_download_downloading_mods">Downloading mods (%.2f MB / %.2f MB)</string>
     <string name="modpack_download_downloading_mods_fc">Downloading mods (File %d out of %d)</string>
     <string name="modpack_download_applying_overrides">Applying overrides (%d/%d)</string>
-    <string name="modpack_install_notification_title">MJ Modpack Installer</string>
+    <string name="modpack_install_notification_title">CR Modpack Installer</string>
     <string name="modpack_install_notification_success">Click here to finish modpack installation</string>
     <string name="modpack_install_notification_data_not_available">Failed to download mod loader information</string>
     <string name="modpack_install_modloader_download_failed">Failed to download the mod loader files</string>
@@ -381,7 +383,7 @@
     <string name="preference_category_miscellaneous">Miscellaneous settings</string>
     <string name="preference_category_video">Video settings</string>
     <string name="notification_permission_dialog_title">Permission request</string>
-    <string name="notification_permission_dialog_text">MJLauncher requires a permission to post notifications to prevent game/modpack downloads from stopping when you leave the app. Without this permission, Android may shut down your downloads when you put MJLauncher in background mode.</string>
+    <string name="notification_permission_dialog_text">Cryonix Launcher requires a permission to post notifications to prevent game/modpack downloads from stopping when you leave the app. Without this permission, Android may shut down your downloads when you put Cryonix Launcher in background mode.</string>
     <string name="notification_permission_toast">You can always change your mind later by going into Settings</string>
     <string name="preference_ask_for_notification_title">Allow notifications</string>
     <string name="preference_ask_for_notification_description">Click to re-request the notification permission, required for game/modpack background downloads to work properly.</string>
@@ -523,4 +525,74 @@
     <string name="main_please_restart">Please restart the game from the launcher homescreen</string>
     <string name="instances">Instances</string>
     <string name="mcl_tab_home">Home</string>
+
+    <!-- Cursor Customization / Studio Pro strings -->
+    <string name="cursor_back">Back</string>
+    <string name="cursor_studio_title">Cursor Studio Pro</string>
+    <string name="cursor_studio_subtitle">Customize mouse pointer style, physics, ripples, speed, and 3D pixel hand look.</string>
+    <string name="cursor_motion_jelly">Motion Jelly</string>
+    <string name="cursor_preview_canvas_title">◉  Interactive Preview &amp; Test Canvas</string>
+    <string name="cursor_preview_canvas_title_portrait">◉  Interactive Preview Canvas</string>
+    <string name="cursor_engine_active">● Engine Active</string>
+    <string name="cursor_test_click">Test Click</string>
+    <string name="cursor_test_ripple">Test Ripple</string>
+    <string name="cursor_test_target">Test Target</string>
+    <string name="cursor_scale_default">Scale: 100%</string>
+    <string name="cursor_speed_default">Speed: 100%</string>
+    <string name="cursor_updates_instantly">Updates apply instantly</string>
+    <string name="cursor_templates_title">◈  Cursor Templates</string>
+    <string name="cursor_templates_subtitle">Select Pixel Hand, Classic, Dot, Crosshair, Star, Ring, or custom shape.</string>
+    <string name="cursor_pointer_speed">⚡  Pointer Speed</string>
+    <string name="cursor_percent_100">100%</string>
+    <string name="cursor_scale_title">↗  Cursor Scale</string>
+    <string name="cursor_outline">◎ Outline</string>
+    <string name="cursor_shadow">✦ Shadow</string>
+    <string name="cursor_glow">✺ Glow Effect</string>
+    <string name="cursor_ripple">◎ Click Ripple</string>
+    <string name="cursor_motion_trail">≋  Motion Trail Effect</string>
+    <string name="cursor_opacity_title">◐  Opacity</string>
+    <string name="cursor_rotation_title">↻  Rotation Angle</string>
+    <string name="cursor_degree_0">0°</string>
+    <string name="cursor_custom_png">▣  Custom PNG Cursor</string>
+    <string name="cursor_not_selected">Not selected</string>
+    <string name="cursor_choose_png">Choose PNG</string>
+    <string name="cursor_pro_presets">✦  Pro Presets</string>
+    <string name="cursor_pro_presets_subtitle">Instant cursor styles. Fine-tune any setting above.</string>
+    <string name="cursor_preset_pixel_hand">Pixel Hand</string>
+    <string name="cursor_preset_gamer_pro">Gamer Pro</string>
+    <string name="cursor_preset_cyber_glow">Cyber Glow</string>
+    <string name="cursor_preset_minimal">Minimal</string>
+    <string name="cursor_reset_all">Reset all cursor settings</string>
+    <string name="cursor_reset_settings">Reset cursor settings</string>
+
+    <!-- Create Instance Redesign strings -->
+    <string name="create_instance_title">Create Instance</string>
+    <string name="create_instance_subtitle">Configure your new Minecraft installation</string>
+    <string name="create_instance_identity">Instance Identity</string>
+    <string name="create_instance_identity_sub">Set name and icon for your installation</string>
+    <string name="create_instance_mc_version">Minecraft Version</string>
+    <string name="create_instance_mod_loader">Mod Loader</string>
+    <string name="create_instance_loader_version">Loader Version</string>
+    <string name="create_instance_advanced_options">Advanced Options</string>
+    <string name="create_instance_live_preview">Live Preview</string>
+    <string name="create_instance_ready">Ready to Create</string>
+    <string name="create_instance_success">Instance created successfully!</string>
+    <string name="create_instance_name_hint">Instance Name</string>
+    <string name="create_instance_path_label">Installation Path</string>
+    <!-- Screen Recorder strings -->
+    <string name="screen_recorder_title">In-Game Screen Recorder</string>
+    <string name="screen_recorder_subtitle">Record smooth gameplay with voice and managed videos</string>
+    <string name="screen_recorder_start">Start Recording</string>
+    <string name="screen_recorder_stop">Stop Recording</string>
+    <string name="screen_recorder_recording_live">● Recording Live</string>
+    <string name="screen_recorder_idle">● Idle</string>
+    <string name="screen_recorder_mic">Record Microphone Voice</string>
+    <string name="screen_recorder_resolution">Video Resolution</string>
+    <string name="screen_recorder_fps">Frame Rate (FPS)</string>
+    <string name="screen_recorder_bitrate">Video Bitrate</string>
+    <string name="screen_recorder_saved">Saved Recordings</string>
+    <string name="screen_recorder_no_recordings">No recorded videos found</string>
+    <string name="screen_recorder_permission_required">Microphone and Screen Capture permissions are required to record video.</string>
+    <string name="screen_recorder_delete_confirm">Delete this recording?</string>
+    <string name="modloader_bta_install_title" />
 </resources>

@@ -20,14 +20,14 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.math.MathUtils;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kdt.mcgui.ProgressLayout;
 
-import git.artdeell.mojo.R;
+import git.neko.cryonixlauncher.R;
+import net.kdt.pojavlaunch.utils.JellyAnimations;
 
 import net.kdt.pojavlaunch.PojavApplication;
 import net.kdt.pojavlaunch.Tools;
@@ -52,14 +52,6 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
 
     public static final String TAG = "SearchModFragment";
     private View mOverlay;
-    private float mOverlayTopCache; // Padding cache reduce resource lookup
-
-    private final RecyclerView.OnScrollListener mOverlayPositionListener = new RecyclerView.OnScrollListener() {
-        @Override
-        public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-            mOverlay.setY(MathUtils.clamp(mOverlay.getY() - dy, -mOverlay.getHeight(), mOverlayTopCache));
-        }
-    };
 
     private EditText mSearchEditText;
     private ImageButton mFilterButton;
@@ -127,8 +119,6 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
         // You can only access resources after attaching to current context
         mModItemAdapter = new ModItemAdapter(getResources(), modpackApi, this);
         ProgressKeeper.addTaskCountListener(mModItemAdapter);
-        mOverlayTopCache = getResources().getDimension(R.dimen.fragment_padding_medium);
-
         mOverlay = view.findViewById(R.id.search_mod_overlay);
         mSearchEditText = view.findViewById(R.id.search_mod_edittext);
         mSearchProgressBar = view.findViewById(R.id.search_mod_progressbar);
@@ -141,21 +131,12 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
         mRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerview.setAdapter(mModItemAdapter);
 
-        mRecyclerview.addOnScrollListener(mOverlayPositionListener);
-
         mSearchEditText.setOnEditorActionListener((v, actionId, event) -> {
             searchMods(mSearchEditText.getText().toString());
             mSearchEditText.clearFocus();
             return false;
         });
 
-        mOverlay.post(()->{
-           int overlayHeight = mOverlay.getHeight();
-           mRecyclerview.setPadding(mRecyclerview.getPaddingLeft(),
-                   mRecyclerview.getPaddingTop() + overlayHeight,
-                   mRecyclerview.getPaddingRight(),
-                   mRecyclerview.getPaddingBottom());
-        });
         mFilterButton.setOnClickListener(v -> displayFilterDialog());
         mImportButton = view.findViewById(R.id.mineButton_import_local_modpack);
         mImportButton.setOnClickListener(v -> {
@@ -168,13 +149,15 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
         ProgressKeeper.addTaskCountListener(mTaskCountListener);
 
         searchMods(null);
+
+        JellyAnimations.animateScreen(view);
+        JellyAnimations.attachTouchFeedback(view);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ProgressKeeper.removeTaskCountListener(mModItemAdapter);
-        mRecyclerview.removeOnScrollListener(mOverlayPositionListener);
         if (mTaskCountListener != null) { ProgressKeeper.removeTaskCountListener(mTaskCountListener); }
     }
 
@@ -236,5 +219,6 @@ public class SearchModFragment extends Fragment implements ModItemAdapter.Search
         });
 
         dialog.show();
+        JellyAnimations.animateDialog(dialog);
     }
 }

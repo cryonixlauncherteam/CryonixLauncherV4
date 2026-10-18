@@ -9,35 +9,50 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_card"
-        android:layout_width="match_parent"
+        android:layout_width="440dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_card"
+        android:background="@drawable/bg_dialog"
         android:padding="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/login_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_px_accounts"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/primary_accent" />
 
         <!-- Title -->
         <TextView
             android:id="@+id/login_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:text="@string/auth_select_local"
             android:textColor="@color/primary_text"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/login_icon"
+            app:layout_constraintStart_toEndOf="@+id/login_icon"
+            app:layout_constraintTop_toTopOf="@+id/login_icon" />
 
         <TextView
             android:id="@+id/username_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:text="@string/login_online_username_hint"
             android:textColor="@color/secondary_text"
             android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_title" />
+            app:layout_constraintTop_toBottomOf="@id/login_icon" />
 
         <com.kdt.mcgui.MineEditText
             android:id="@+id/login_edit_email"
@@ -57,14 +72,13 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
-            android:onClick="loginMC"
             android:text="@string/login_online_login_label"
             android:textAllCaps="false"
             android:textColor="@color/minebutton_text_color"
             android:textSize="14sp"
             app:layout_constraintTop_toBottomOf="@id/login_edit_email" />
 
-        <!-- Hidden view for ID compatibility if required by existing Java -->
+        <!-- Hidden view for ID compatibility if required -->
         <View
             android:id="@+id/login_menu"
             android:layout_width="0dp"

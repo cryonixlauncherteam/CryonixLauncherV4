@@ -2,71 +2,78 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="-10dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_setting_sign_in_background" />
+    android:layout_height="match_parent"
+    android:background="@color/background_app">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="440dp"
         android:layout_height="wrap_content"
-
-
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:background="@drawable/menu_background"
-        android:paddingVertical="20dp"
+        android:background="@drawable/bg_dialog"
+        android:padding="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/import_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_px_gamepad"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/primary_accent" />
+
+        <TextView
+            android:id="@+id/import_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Import Control Layout"
+            android:textColor="@color/primary_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/import_icon"
+            app:layout_constraintStart_toEndOf="@+id/import_icon"
+            app:layout_constraintTop_toTopOf="@+id/import_icon" />
 
         <TextView
             android:id="@+id/textView_import_control_file_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="5dp"
-            android:text="File name:"
-            app:layout_constraintBottom_toTopOf="@+id/editText_import_control_file_name"
-            app:layout_constraintStart_toStartOf="@+id/editText_import_control_file_name" />
+            android:layout_marginTop="20dp"
+            android:text="Control Layout Name:"
+            android:textColor="@color/secondary_text"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/import_icon" />
 
         <com.kdt.mcgui.MineEditText
             android:id="@+id/editText_import_control_file_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="35dp"
-            android:layout_marginBottom="20dp"
-            android:hint="File name"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input"
+            android:hint="Control profile name..."
             android:imeOptions="flagForceAscii"
-
-            app:layout_constraintBottom_toTopOf="@+id/mineButton_import_control" />
+            android:paddingHorizontal="16dp"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/tertiary_text"
+            app:layout_constraintTop_toBottomOf="@+id/textView_import_control_file_name" />
 
         <com.kdt.mcgui.MineButton
             android:id="@+id/mineButton_import_control"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-
-            android:background="@drawable/mine_button_background"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
             android:onClick="startImport"
-
             android:text="@string/import_control_import_button"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/editText_import_control_file_name"
-
-            app:layout_constraintStart_toStartOf="@+id/editText_import_control_file_name"
-
-            app:layout_constraintVertical_bias="0.70" />
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/editText_import_control_file_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

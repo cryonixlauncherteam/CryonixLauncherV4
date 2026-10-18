@@ -1,159 +1,912 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.kdt.DefocusableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="12dp">
 
+    <!-- COMPACT HEADER BAR -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="44dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
-        <!-- Vanilla Card Section -->
+        <ImageButton
+            android:id="@+id/create_instance_back"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/launcher_counter_bg"
+            android:contentDescription="@string/cursor_back"
+            android:padding="8dp"
+            android:src="@drawable/ic_px_arrow_left"
+            app:tint="#70C6E8" />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/background_card"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:text="@string/create_profile_vanilla_like_versions"
-                android:textColor="@color/primary_text"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="12dp"
-                android:background="@color/divider" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/vanilla_profile"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/create_instance_vanilla"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/optifine_profile"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="@string/mod_dl_install_optifine"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <!-- Modded Card Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_card"
-            android:orientation="vertical"
-            android:padding="16dp">
+                android:fontFamily="sans-serif-black"
+                android:text="@string/create_instance_title"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/title_modded_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:text="@string/create_profile_modded_versions"
-                android:textColor="@color/primary_text"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/view_modded"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="12dp"
-                android:background="@color/divider" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/modded_profile_fabric"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/modloader_dl_install_fabric_instance"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/modded_profile_quilt"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/modloader_dl_install_quilt_instance"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/modded_profile_legacy_fabric"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/modloader_dl_install_legacy_fabric_instance"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/modded_profile_forge"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/modloader_dl_install_forge_instance"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/modded_profile_neoforge"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/modloader_dl_install_neoforge_instance"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/modded_profile_modpack"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/modpack_install_instance_button"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-
-            <com.kdt.mcgui.MineButton
-                android:id="@+id/modded_profile_bta"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="@string/create_bta_instance"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
+                android:text="@string/create_instance_subtitle"
+                android:textColor="#9DAAB2"
+                android:textSize="11sp" />
         </LinearLayout>
-
-        <!-- Hidden guidelines for ID safety -->
-        <View
-            android:id="@+id/guideline"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone" />
-
-        <View
-            android:id="@+id/guideline2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone" />
     </LinearLayout>
-</com.kdt.DefocusableScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <!-- TWO-COLUMN RESPONSIVE LANDSCAPE LAYOUT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <!-- LEFT COLUMN: CONFIGURATION INPUTS -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1.1"
+                android:orientation="vertical">
+
+                <!-- 1. INSTANCE IDENTITY CARD -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:id="@+id/create_instance_icon_container"
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
+                            android:layout_marginEnd="12dp"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <ImageView
+                                android:id="@+id/create_instance_icon"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:contentDescription="@string/create_instance_identity"
+                                android:padding="8dp"
+                                android:src="@drawable/cryonixlauncher" />
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="bottom|end"
+                                android:background="@drawable/bg_chip"
+                                android:contentDescription="@string/global_edit"
+                                android:padding="3dp"
+                                android:src="@drawable/ic_px_edit"
+                                app:tint="@android:color/white" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/create_instance_identity"
+                                android:textColor="@android:color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/create_instance_name_input"
+                                android:layout_width="match_parent"
+                                android:layout_height="38dp"
+                                android:background="@drawable/bg_input"
+                                android:hint="@string/create_instance_name_hint"
+                                android:inputType="textPersonName"
+                                android:paddingHorizontal="10dp"
+                                android:textColor="@android:color/white"
+                                android:textColorHint="#68778B"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/create_instance_path_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:ellipsize="middle"
+                        android:singleLine="true"
+                        android:text=".minecraft/instances/New Instance"
+                        android:textColor="#68778B"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- 2. MINECRAFT VERSION SELECTOR CARD -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_instance_mc_version"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/create_instance_version_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_input"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="10dp"
+                            android:text="1.20.1"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/create_instance_version_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_button_secondary"
+                            android:paddingHorizontal="14dp"
+                            android:text="@string/global_select"
+                            android:textColor="@android:color/white"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 3. MOD LOADER SELECTION CARD -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_instance_mod_loader"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="68dp"
+                        android:layout_marginTop="6dp"
+                        android:overScrollMode="never"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <!-- Vanilla Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_vanilla"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_selected"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/cryonixlauncher" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="Vanilla"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <!-- Fabric Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_fabric"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_fabric" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="Fabric"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <!-- Forge Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_forge"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_forge" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="Forge"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <!-- NeoForge Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_neoforge"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_neoforge" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="NeoForge"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <!-- Quilt Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_quilt"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_quilt" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="Quilt"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <!-- OptiFine Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_optifine"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_px_sparkles"
+                                    app:tint="#70C6E8" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="OptiFine"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <!-- Legacy Fabric Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_legacy_fabric"
+                                android:layout_width="78dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_fabric" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="Legacy Fabric"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="9sp" />
+                            </LinearLayout>
+
+                            <!-- Modpack Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_modpack"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_px_cube"
+                                    app:tint="#70C6E8" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="Modpack"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <!-- BTA Tile -->
+                            <LinearLayout
+                                android:id="@+id/loader_tile_bta"
+                                android:layout_width="72dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_card_elevated"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_px_gamepad"
+                                    app:tint="#70C6E8" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="BTA"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+                <!-- 4. LOADER VERSION SELECTOR CARD -->
+                <LinearLayout
+                    android:id="@+id/create_instance_loader_version_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/create_instance_loader_version_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/create_instance_loader_version"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="6dp">
+
+                        <Spinner
+                            android:id="@+id/create_instance_loader_spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_input"
+                            android:paddingHorizontal="8dp" />
+
+                        <ProgressBar
+                            android:id="@+id/create_instance_loader_progress"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginEnd="10dp"
+                            android:visibility="gone" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- 5. ADVANCED OPTIONS CARD (COLLAPSIBLE) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:id="@+id/create_instance_advanced_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/create_instance_advanced_options"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/create_instance_advanced_arrow"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_px_chevron_right"
+                            app:tint="#70C6E8" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/create_instance_advanced_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!-- Custom Control Layout -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_control"
+                            android:textColor="#9DAAB2"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/create_instance_ctrl_text"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_input"
+                                android:gravity="center_vertical"
+                                android:hint="@string/use_global_default"
+                                android:paddingHorizontal="10dp"
+                                android:textColor="@android:color/white"
+                                android:textColorHint="#68778B"
+                                android:textSize="11sp" />
+
+                            <Button
+                                android:id="@+id/create_instance_ctrl_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_button_secondary"
+                                android:paddingHorizontal="12dp"
+                                android:text="@string/global_select"
+                                android:textColor="@android:color/white"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <!-- Java Runtime -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/pedit_java_runtime"
+                            android:textColor="#9DAAB2"
+                            android:textSize="11sp" />
+
+                        <Spinner
+                            android:id="@+id/create_instance_runtime_spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_input"
+                            android:paddingHorizontal="8dp" />
+
+                        <!-- Renderer -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/pedit_renderer"
+                            android:textColor="#9DAAB2"
+                            android:textSize="11sp" />
+
+                        <Spinner
+                            android:id="@+id/create_instance_renderer_spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_input"
+                            android:paddingHorizontal="8dp" />
+
+                        <!-- JVM Arguments -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/pvc_jvmArgs"
+                            android:textColor="#9DAAB2"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/create_instance_jvm_args"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_input"
+                            android:hint="@string/use_global_default"
+                            android:inputType="text"
+                            android:paddingHorizontal="10dp"
+                            android:textColor="@android:color/white"
+                            android:textColorHint="#68778B"
+                            android:textSize="11sp" />
+
+                        <!-- Shared Data -->
+                        <CheckBox
+                            android:id="@+id/create_instance_shared_data"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_input"
+                            android:paddingHorizontal="10dp"
+                            android:text="@string/instance_shared_data_off"
+                            android:textColor="@android:color/white"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- RIGHT COLUMN: LIVE PREVIEW & ACTIONS -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:orientation="vertical">
+
+                <!-- LIVE INSTANCE PREVIEW CARD -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/create_instance_live_preview"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp" />
+
+                    <FrameLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/preview_instance_icon"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_card_elevated"
+                            android:contentDescription="@string/create_instance_title"
+                            android:padding="8dp"
+                            android:src="@drawable/cryonixlauncher" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/preview_instance_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-black"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="Minecraft 1.20.1"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/preview_instance_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/create_instance_ready"
+                        android:textColor="#24D6A0"
+                        android:textSize="10sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="8dp"
+                        android:background="#1E314D" />
+
+                    <!-- SUMMARY DETAILS -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Game Version"
+                                android:textColor="#9DAAB2"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/preview_instance_version"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1.20.1"
+                                android:textColor="@android:color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Mod Loader"
+                                android:textColor="#9DAAB2"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/preview_instance_loader"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vanilla"
+                                android:textColor="#70C6E8"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Runtime"
+                                android:textColor="#9DAAB2"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/preview_instance_runtime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Default Java"
+                                android:textColor="@android:color/white"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Renderer"
+                                android:textColor="#9DAAB2"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/preview_instance_renderer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Default Renderer"
+                                android:textColor="@android:color/white"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Path"
+                                android:textColor="#9DAAB2"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:id="@+id/preview_instance_path"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:ellipsize="middle"
+                                android:gravity="end"
+                                android:singleLine="true"
+                                android:text=".../instances/Minecraft 1.20.1"
+                                android:textColor="#68778B"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- BOTTOM ACTION BUTTONS -->
+                    <Button
+                        android:id="@+id/create_instance_submit_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/cryonix_button_primary"
+                        android:text="@string/create_instance"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/create_instance_cancel_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/bg_button_secondary"
+                        android:text="@string/cursor_back"
+                        android:textColor="#9DAAB2"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

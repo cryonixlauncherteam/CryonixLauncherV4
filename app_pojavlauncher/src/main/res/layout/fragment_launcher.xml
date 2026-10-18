@@ -24,6 +24,48 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Top Header Account Bar -->
+            <LinearLayout
+                android:id="@+id/sidebar_accounts_button"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/background_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp">
+
+                <ImageView
+                    android:id="@+id/profile_avatar"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="Account Avatar"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_head" />
+
+                <TextView
+                    android:id="@+id/user_profile_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:text="Guest"
+                    android:textColor="#F4F7FC"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/spinner_arrow"
+                    app:tint="@color/secondary_text" />
+            </LinearLayout>
+
             <!-- Instances Header Row -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,22 +114,55 @@
                     app:tint="@color/primary_text" />
             </LinearLayout>
 
-            <!-- Selected Instance Main Card -->
+            <!-- Selected Instance Main Card with Minecraft Slideshow -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/selected_instance_panel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/background_card"
+                android:clipToOutline="true"
                 android:padding="12dp">
 
-                <ImageView
-                    android:id="@+id/instance_preview_image"
+                <ViewFlipper
+                    android:id="@+id/slideshow_flipper"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="130dp"
+                    android:autoStart="true"
+                    android:flipInterval="2000"
+                    android:inAnimation="@anim/fade_enter"
+                    android:outAnimation="@anim/fade_exit"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_1"
+                        android:contentDescription="@null" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_2"
+                        android:contentDescription="@null" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_3"
+                        android:contentDescription="@null" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img"
+                        android:contentDescription="@null" />
+
+                </ViewFlipper>
 
                 <LinearLayout
                     android:id="@+id/selected_instance_info_row"
@@ -96,7 +171,7 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/instance_preview_image">
+                    app:layout_constraintTop_toBottomOf="@+id/slideshow_flipper">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -131,18 +206,18 @@
                         android:drawableEnd="@drawable/spinner_arrow" />
                 </LinearLayout>
 
-                <!-- Prominent Launch Button -->
+                <!-- Prominent Launch Button in Blue Gradient -->
                 <com.kdt.mcgui.MineButton
                     android:id="@+id/play_button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_button_launch"
+                    android:background="@drawable/bg_launch_game_blue"
                     android:drawableStart="@drawable/ic_px_play"
                     android:gravity="center"
                     android:text="@string/main_play"
                     android:textAllCaps="true"
-                    android:textColor="@color/minebutton_text_color"
+                    android:textColor="#FFFFFF"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@+id/selected_instance_info_row" />
@@ -215,53 +290,109 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- AI Assistant Card -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ai_assistant_card"
+            <!-- Bottom News Cards Row -->
+            <LinearLayout
+                android:id="@+id/news_cards_row"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="72dp"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/background_card"
-                android:paddingHorizontal="12dp">
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/ai_icon"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:background="@drawable/bg_sidebar_selected"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_px_sparkles"
-                    app:tint="@color/primary_text"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                <!-- Small Card 1 -->
                 <LinearLayout
+                    android:id="@+id/card_launcher_release"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_news_cosmetics"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/ai_icon"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:padding="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AI Assistant"
-                        android:textColor="@color/primary_text"
-                        android:textSize="13sp"
+                        android:text="COSMETICS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Follow AI Commands To setup Launcher properly!"
-                        android:textColor="@color/secondary_text"
-                        android:textSize="10sp" />
+                        android:layout_marginTop="2dp"
+                        android:text="Capes &amp; Skins"
+                        android:textColor="#E8B0E5"
+                        android:textSize="8sp" />
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Small Card 2 -->
+                <LinearLayout
+                    android:id="@+id/card_combat_mod"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_news_giveaways"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CRYONIX V4"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="New Features"
+                        android:textColor="#A8D5FF"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+                <!-- Small Card 3 -->
+                <LinearLayout
+                    android:id="@+id/card_new_cosmetics"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_website_card"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COMMUNITY"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Events &amp; Links"
+                        android:textColor="#E0C2FF"
+                        android:textSize="8sp" />
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
@@ -278,39 +409,45 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/discord_button"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_secondary"
+            android:drawableStart="@drawable/ic_discord"
+            android:text="Discord"
+            android:textColor="@color/primary_text"
+            android:textSize="11sp" />
+
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/youtube_button"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_secondary"
+            android:drawableStart="@drawable/ic_youtube"
+            android:text="YouTube"
+            android:textColor="@color/primary_text"
+            android:textSize="11sp" />
+
+        <com.kdt.mcgui.LauncherMenuButton
+            android:id="@+id/website_button"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_secondary"
+            android:drawableStart="@drawable/ic_px_download"
+            android:text="Website"
+            android:textColor="@color/primary_text"
+            android:textSize="11sp" />
+
+        <View
             android:id="@+id/news_button"
             android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_button_secondary"
-            android:drawableStart="@drawable/ic_px_book"
-            android:text="@string/mcl_tab_wiki"
-            android:textColor="@color/primary_text"
-            android:textSize="11sp" />
-
-        <com.kdt.mcgui.LauncherMenuButton
-            android:id="@+id/custom_control_button"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_button_secondary"
-            android:drawableStart="@drawable/ic_px_gamepad"
-            android:text="@string/mcl_option_customcontrol"
-            android:textColor="@color/primary_text"
-            android:textSize="11sp" />
-
-        <com.kdt.mcgui.LauncherMenuButton
-            android:id="@+id/install_jar_button"
-            android:layout_width="0dp"
-            android:layout_height="38dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_button_secondary"
-            android:drawableStart="@drawable/ic_px_java_run"
-            android:text="@string/main_install_jar_file"
-            android:textColor="@color/primary_text"
-            android:textSize="11sp" />
+            android:layout_height="0dp"
+            android:visibility="gone" />
 
         <View
             android:id="@+id/social_media_button"
@@ -331,21 +468,95 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <!-- Floating Cryonix Assistant Circle (Bottom Right) -->
-    <ImageButton
-        android:id="@+id/floating_assistant_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/bg_floating_assistant"
-        android:contentDescription="Cryonix Assistant"
-        android:elevation="6dp"
-        android:padding="10dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_px_sparkles"
-        app:tint="@color/primary_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <LinearLayout
+        android:id="@+id/hidden_views_container"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/selected_instance_version"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/instance_counter"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <ImageView
+            android:id="@+id/selected_instance_preview"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/instances_list"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/empty_instances_view"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/btn_create_first_instance"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/btn_prev_instance"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/btn_next_instance"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/sidebar_downloads"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/screen_recorder_button"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/sidebar_settings_button"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/floating_assistant_button"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/ai_assistant_card"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/manage_account_button"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/instance_count_text"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/featured_instance_title"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

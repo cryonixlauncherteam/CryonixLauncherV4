@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Cryonix Aurora Palette -->
-    <color name="background_app">#080D17</color>
-    <color name="background_secondary">#0D1626</color>
-    <color name="background_card">#101D32</color>
-    <color name="elevated_surface">#162640</color>
+    <!-- Cryonix Launcher V4 Color Palette -->
+    <color name="background_app">#080D1A</color>
+    <color name="background_secondary">#0C1526</color>
+    <color name="background_card">#0F182B</color>
+    <color name="elevated_surface">#131F35</color>
 
-    <color name="primary_accent">#348BFF</color>
-    <color name="secondary_accent">#65A7FF</color>
-    <color name="primary_accent_pressed">#2471E0</color>
+    <color name="primary_accent">#168BFF</color>
+    <color name="secondary_accent">#329BFF</color>
+    <color name="primary_accent_pressed">#1278DF</color>
 
-    <color name="primary_text">#F5F7FC</color>
-    <color name="secondary_text">#A1B2CC</color>
-    <color name="tertiary_text">#657896</color>
+    <color name="primary_text">#F4F7FC</color>
+    <color name="secondary_text">#9BA8BA</color>
+    <color name="tertiary_text">#68778B</color>
 
-    <color name="divider">#243C5D</color>
-    <color name="background_overlay">#243C5D</color>
-    <color name="background_status_bar">#080D17</color>
-    <color name="background_bottom_bar">#0D1626</color>
-    <color name="icon_outline_color">#F5F7FC</color>
+    <color name="divider">#FFFFFF</color>
+    <color name="background_overlay">#CC080D1A</color>
+    <color name="background_status_bar">#080D1A</color>
+    <color name="background_bottom_bar">#0C1526</color>
+    <color name="icon_outline_color">#F4F7FC</color>
 
-    <color name="success_color">#35D6A0</color>
-    <color name="warning_color">#F3BB62</color>
-    <color name="error_color">#F07880</color>
+    <color name="success_color">#24D6A0</color>
+    <color name="warning_color">#F2BB55</color>
+    <color name="error_color">#F16C75</color>
 
-    <color name="minebutton_color">#F5F7FC</color>
-    <color name="minebutton_text_color">#101827</color>
-    <color name="minebutton_pressed_color">#D0D8E8</color>
-    <color name="minebutton_disabled_color">#44F5F7FC</color>
+    <color name="minebutton_color">#168BFF</color>
+    <color name="minebutton_text_color">#FFFFFF</color>
+    <color name="minebutton_pressed_color">#329BFF</color>
+    <color name="minebutton_disabled_color">#33168BFF</color>
 
-    <color name="control_button_color">#33348BFF</color>
-    <color name="control_button_pressed_color">#66348BFF</color>
+    <color name="control_button_color">#22168BFF</color>
+    <color name="control_button_pressed_color">#44168BFF</color>
 
     <!-- Additional Palette Colors -->
-    <color name="card_border">#243C5D</color>
-    <color name="card_border_focused">#348BFF</color>
-    <color name="chip_bg">#162640</color>
-    <color name="input_bg">#0D1626</color>
+    <color name="card_border">#1E314D</color>
+    <color name="card_border_focused">#168BFF</color>
+    <color name="chip_bg">#131F35</color>
+    <color name="input_bg">#0C1526</color>
+
+    <!-- Cryonix Settings & Theme Aliases -->
+    <color name="cryonix_border">#1E314D</color>
+    <color name="cryonix_settings_bg">#0C1526</color>
+    <color name="cryonix_card_bg">#0F182B</color>
+    <color name="cryonix_item_bg">#131F35</color>
+    <color name="cryonix_item_selected">#26168BFF</color>
+    <color name="cryonix_item_pressed">#329BFF</color>
+
+    <color name="accent_blue">#168BFF</color>
+    <color name="launcher_surface">#0F182B</color>
+    <color name="launcher_surface_alt">#0C1526</color>
+    <color name="launcher_divider">#1E314D</color>
 </resources>

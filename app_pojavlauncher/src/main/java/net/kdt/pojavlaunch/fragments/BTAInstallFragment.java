@@ -1,10 +1,10 @@
-package net.kdt.pojavlaunch.fragments;
+import git.artdeell.mojo.R;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.ExpandableListAdapter;
 
-import git.artdeell.mojo.R;
+import net.kdt.pojavlaunch.fragments.ModVersionListFragment;
 import net.kdt.pojavlaunch.modloaders.BTADownloadTask;
 import net.kdt.pojavlaunch.modloaders.BTAUtils;
 import net.kdt.pojavlaunch.modloaders.BTAVersionListAdapter;
@@ -22,7 +22,7 @@ public class BTAInstallFragment extends ModVersionListFragment<BTAUtils.BTAVersi
 
     @Override
     public int getTitleText() {
-        return R.string.select_bta_version;
+        return R.string.modloader_bta_install_title;
     }
 
     @Override

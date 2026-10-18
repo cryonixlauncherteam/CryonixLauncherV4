@@ -11,9 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.kdt.mcgui.ProgressLayout;
 
-import git.artdeell.mojo.R;
+import git.neko.cryonixlauncher.R;
 import net.kdt.pojavlaunch.Tools;
 import net.kdt.pojavlaunch.progresskeeper.ProgressKeeper;
+import net.kdt.pojavlaunch.utils.JellyAnimations;
 
 public class SelectAuthFragment extends Fragment {
     public static final String TAG = "AUTH_SELECT_FRAGMENT";
@@ -31,6 +32,9 @@ public class SelectAuthFragment extends Fragment {
         mMicrosoftButton.setOnClickListener(v -> launchAuthFragment(MicrosoftLoginFragment.class, MicrosoftLoginFragment.TAG));
         mLocalButton.setOnClickListener(v -> launchAuthFragment(LocalLoginFragment.class, LocalLoginFragment.TAG));
         mElyByButton.setOnClickListener(v -> launchAuthFragment(ElyByLoginFragment.class, ElyByLoginFragment.TAG));
+
+        JellyAnimations.animateScreen(view);
+        JellyAnimations.attachTouchFeedback(view);
     }
 
     private void launchAuthFragment(Class<? extends  Fragment> fragmentClass, String fragmentTag) {

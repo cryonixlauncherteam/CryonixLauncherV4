@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false">
-        <shape android:shape="rectangle">
-            <solid android:color="@color/background_secondary" />
-            <corners android:radius="10dp" />
-            <stroke android:width="1dp" android:color="@color/divider" />
-        </shape>
-    </item>
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/elevated_surface" />
-            <corners android:radius="10dp" />
-            <stroke android:width="1dp" android:color="@color/primary_accent_pressed" />
+            <solid android:color="#293447" />
+            <corners android:radius="12dp" />
+            <stroke android:width="1dp" android:color="@color/primary_accent" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/background_secondary" />
-            <corners android:radius="10dp" />
+            <solid android:color="@color/elevated_surface" />
+            <corners android:radius="12dp" />
             <stroke android:width="1dp" android:color="@color/card_border" />
         </shape>
     </item>

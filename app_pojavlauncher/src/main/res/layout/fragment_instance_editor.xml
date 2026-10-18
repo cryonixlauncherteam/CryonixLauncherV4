@@ -1,255 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_app"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_card"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <!-- Icon Header -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp">
-
-                <ImageView
-                    android:id="@+id/vprof_editor_instance_icon"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_card_elevated"
-                    android:contentDescription="@string/profiles_profile_name"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_px_gamepad" />
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="bottom|end"
-                    android:background="@drawable/bg_chip"
-                    android:contentDescription="@string/global_edit"
-                    android:padding="4dp"
-                    android:src="@drawable/ic_px_edit"
-                    app:tint="@color/primary_text" />
-            </FrameLayout>
-
-            <!-- Instance Name -->
-            <TextView
-                android:id="@+id/vprof_editor_profile_name_sub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/profiles_profile_name"
-                android:textColor="@color/secondary_text"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/vprof_editor_instance_name"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_input"
-                android:hint="@string/unnamed"
-                android:inputType="textPersonName"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/primary_text"
-                android:textColorHint="@color/tertiary_text"
-                android:textSize="14sp" />
-
-            <!-- Minecraft Version -->
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/profiles_profile_version"
-                android:textColor="@color/secondary_text"
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/vprof_editor_version_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_input"
-                    android:gravity="center_vertical"
-                    android:hint="@string/version_select_hint"
-                    android:paddingHorizontal="16dp"
-                    android:textColor="@color/primary_text"
-                    android:textColorHint="@color/tertiary_text"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/vprof_editor_version_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_button_secondary"
-                    android:paddingHorizontal="16dp"
-                    android:text="@string/global_select"
-                    android:textColor="@color/primary_text" />
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/background_app" android:padding="16dp">
+    <ImageButton android:id="@+id/vprof_editor_back" android:layout_width="42dp" android:layout_height="42dp" android:background="@drawable/bg_button_secondary" android:contentDescription="Back" android:padding="11dp" android:src="@drawable/ic_px_arrow_left" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:tint="@color/primary_text" />
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:orientation="vertical" app:layout_constraintBottom_toBottomOf="@id/vprof_editor_back" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/vprof_editor_back" app:layout_constraintTop_toTopOf="@id/vprof_editor_back">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Instance workspace" android:textColor="@color/primary_text" android:textSize="20sp" android:textStyle="bold" />
+        <TextView android:id="@+id/vprof_editor_sub_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Configure this Minecraft installation" android:textColor="@color/secondary_text" android:textSize="12sp" />
+    </LinearLayout>
+    <ScrollView android:layout_width="0dp" android:layout_height="0dp" android:layout_marginTop="18dp" android:fillViewport="true" android:overScrollMode="never" android:scrollbars="none" app:layout_constraintBottom_toTopOf="@id/instance_editor_actions" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/vprof_editor_back">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_dialog" android:gravity="center_vertical" android:orientation="horizontal" android:padding="16dp">
+                <ImageView android:id="@+id/vprof_editor_instance_icon" android:layout_width="76dp" android:layout_height="76dp" android:background="@drawable/bg_card_elevated" android:contentDescription="Change instance icon" android:padding="10dp" android:src="@drawable/ic_px_gamepad" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                    <TextView android:id="@+id/vprof_editor_profile_name_sub" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="INSTANCE NAME" android:textColor="@color/secondary_text" android:textSize="11sp" android:textStyle="bold" />
+                    <EditText android:id="@+id/vprof_editor_instance_name" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="6dp" android:background="@drawable/bg_input" android:hint="Unnamed instance" android:inputType="textPersonName" android:paddingHorizontal="14dp" android:textColor="@color/primary_text" android:textColorHint="@color/tertiary_text" android:textSize="16sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="7dp" android:text="Tap the icon to choose a custom image" android:textColor="@color/secondary_text" android:textSize="11sp" />
+                </LinearLayout>
             </LinearLayout>
-
-            <!-- Control Layout -->
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/default_control"
-                android:textColor="@color/secondary_text"
-                android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/vprof_editor_ctrl_spinner"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_input"
-                    android:gravity="center_vertical"
-                    android:hint="@string/use_global_default"
-                    android:paddingHorizontal="16dp"
-                    android:textColor="@color/primary_text"
-                    android:textColorHint="@color/tertiary_text"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/vprof_editor_ctrl_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/bg_button_secondary"
-                    android:paddingHorizontal="16dp"
-                    android:text="@string/global_select"
-                    android:textColor="@color/primary_text" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22dp" android:layout_marginBottom="8dp" android:text="GAME" android:textColor="@color/secondary_text" android:textSize="11sp" android:textStyle="bold" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_dialog" android:orientation="vertical" android:padding="16dp">
+                <TextView android:id="@+id/textView4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Minecraft version" android:textColor="@color/primary_text" android:textSize="14sp" android:textStyle="bold" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="10dp" android:orientation="horizontal"><TextView android:id="@+id/vprof_editor_version_spinner" android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginEnd="8dp" android:layout_weight="1" android:background="@drawable/bg_input" android:gravity="center_vertical" android:hint="Select a version" android:paddingHorizontal="14dp" android:textColor="@color/primary_text" android:textColorHint="@color/tertiary_text" /><Button android:id="@+id/vprof_editor_version_button" android:layout_width="wrap_content" android:layout_height="match_parent" android:background="@drawable/bg_button_secondary" android:paddingHorizontal="18dp" android:text="Select" android:textColor="@color/primary_text" /></LinearLayout>
+                <TextView android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Control layout" android:textColor="@color/primary_text" android:textSize="14sp" android:textStyle="bold" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="10dp" android:orientation="horizontal"><TextView android:id="@+id/vprof_editor_ctrl_spinner" android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginEnd="8dp" android:layout_weight="1" android:background="@drawable/bg_input" android:gravity="center_vertical" android:hint="Use global default" android:paddingHorizontal="14dp" android:textColor="@color/primary_text" android:textColorHint="@color/tertiary_text" /><Button android:id="@+id/vprof_editor_ctrl_button" android:layout_width="wrap_content" android:layout_height="match_parent" android:background="@drawable/bg_button_secondary" android:paddingHorizontal="18dp" android:text="Browse" android:textColor="@color/primary_text" /></LinearLayout>
             </LinearLayout>
-
-            <!-- Shared Data CheckBox -->
-            <CheckBox
-                android:id="@+id/vprof_editor_data_checkbox_container"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_input"
-                android:button="@null"
-                android:paddingHorizontal="16dp"
-                android:text="@string/instance_shared_data_off"
-                android:textColor="@color/primary_text"
-                android:textSize="14sp" />
-
-            <!-- JVM Arguments -->
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pvc_jvmArgs"
-                android:textColor="@color/secondary_text"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/vprof_editor_jre_args"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_input"
-                android:hint="@string/use_global_default"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/primary_text"
-                android:textColorHint="@color/tertiary_text"
-                android:textSize="14sp" />
-
-            <!-- Java Runtime -->
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pedit_java_runtime"
-                android:textColor="@color/secondary_text"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/vprof_editor_spinner_runtime"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_input"
-                android:paddingHorizontal="12dp" />
-
-            <!-- Renderer -->
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pedit_renderer"
-                android:textColor="@color/secondary_text"
-                android:textSize="12sp" />
-
-            <Spinner
-                android:id="@+id/vprof_editor_instance_renderer"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/bg_input"
-                android:paddingHorizontal="12dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="22dp" android:layout_marginBottom="8dp" android:text="RUNTIME" android:textColor="@color/secondary_text" android:textSize="11sp" android:textStyle="bold" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_dialog" android:orientation="vertical" android:padding="16dp">
+                <TextView android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Java runtime" android:textColor="@color/primary_text" android:textSize="14sp" android:textStyle="bold" /><Spinner android:id="@+id/vprof_editor_spinner_runtime" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp" android:background="@drawable/bg_input" android:paddingHorizontal="12dp" />
+                <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Renderer" android:textColor="@color/primary_text" android:textSize="14sp" android:textStyle="bold" /><Spinner android:id="@+id/vprof_editor_instance_renderer" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp" android:background="@drawable/bg_input" android:paddingHorizontal="12dp" />
+                <TextView android:id="@+id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="JVM arguments" android:textColor="@color/primary_text" android:textSize="14sp" android:textStyle="bold" /><EditText android:id="@+id/vprof_editor_jre_args" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="8dp" android:background="@drawable/bg_input" android:hint="Use global default" android:inputType="text" android:paddingHorizontal="14dp" android:textColor="@color/primary_text" android:textColorHint="@color/tertiary_text" />
+                <CheckBox android:id="@+id/vprof_editor_data_checkbox_container" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="12dp" android:background="@drawable/bg_input" android:buttonTint="@color/primary_accent" android:gravity="center_vertical" android:paddingHorizontal="12dp" android:text="Use shared game data" android:textColor="@color/primary_text" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <!-- Action Buttons Row -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
-
-        <com.kdt.mcgui.MineButton
-            android:id="@+id/vprof_editor_save_button"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:text="@string/global_save"
-            android:textAllCaps="false"
-            android:textSize="14sp" />
-
-        <com.kdt.mcgui.MineButton
-            android:id="@+id/vprof_editor_delete_button"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:text="@string/global_delete"
-            android:textAllCaps="false"
-            android:textSize="14sp" />
-    </LinearLayout>
-</LinearLayout>
+    <LinearLayout android:id="@+id/instance_editor_actions" android:layout_width="0dp" android:layout_height="52dp" android:layout_marginTop="10dp" android:orientation="horizontal" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"><Button android:id="@+id/vprof_editor_delete_button" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginEnd="10dp" android:background="@drawable/bg_button_danger" android:paddingHorizontal="18dp" android:text="Delete" android:textColor="#F16C75" /><Button android:id="@+id/vprof_editor_save_button" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@drawable/cryonix_button_primary" android:text="Save instance" android:textColor="@android:color/white" android:textStyle="bold" /></LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
