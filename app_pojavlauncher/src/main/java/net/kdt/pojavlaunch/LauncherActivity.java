@@ -237,6 +237,7 @@ public class LauncherActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         if (isFinishing()) {
+            // Send an explicit clear when the launcher is closed normally.
             DiscordPresenceService.update(this, DiscordPresenceService.ACTION_CLEAR, null);
         }
         super.onDestroy();

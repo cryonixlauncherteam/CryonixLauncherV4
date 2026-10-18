@@ -33,11 +33,20 @@ discordpp::Client* getClient() {
 extern "C" JNIEXPORT void JNICALL
 Java_net_kdt_pojavlaunch_DiscordPresenceService_nativeUpdatePresence(
         JNIEnv* env, jclass, jstring details, jstring state) {
+    const std::string detailsText = fromJavaString(env, details);
+    // Reset the previous activity before starting a new browsing session so
+    // Discord cannot retain the elapsed-time timestamp from the old game session.
+    if (detailsText == "Browsing CryonixLauncher") {
+        if (g_client) {
+            g_client->ClearRichPresence();
+            discordpp::RunCallbacks();
+        }
+    }
     discordpp::Activity activity{};
     // Explicitly override the activity's displayed title instead of relying on
     // the SDK's default application-name resolution (which was showing "Game").
     activity.SetName("CryonixLauncher");
-    activity.SetDetails(fromJavaString(env, details));
+    activity.SetDetails(detailsText);
     activity.SetState(fromJavaString(env, state));
 
     getClient()->UpdateRichPresence(std::move(activity), [](discordpp::ClientResult result) {
