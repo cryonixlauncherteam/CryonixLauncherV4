@@ -62,7 +62,13 @@ Java_net_kdt_pojavlaunch_DiscordPresenceService_nativeUpdatePresence(
 
 extern "C" JNIEXPORT void JNICALL
 Java_net_kdt_pojavlaunch_DiscordPresenceService_nativeClearPresence(JNIEnv*, jclass) {
-    if (g_client) g_client->ClearRichPresence();
+    if (g_client) {
+        g_client->ClearRichPresence();
+        // ClearRichPresence is processed through the Discord SDK callback loop.
+        // Pump it immediately because the service may be shutting down right now.
+        discordpp::RunCallbacks();
+        __android_log_print(ANDROID_LOG_DEBUG, kLogTag, "Rich Presence clear requested");
+    }
 }
 
 extern "C" JNIEXPORT void JNICALL
