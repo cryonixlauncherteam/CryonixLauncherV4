@@ -61,6 +61,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name="net.kdt.pojavlaunch.DiscordPresenceService"
+            android:exported="false" />
+
         <activity
             android:name="net.kdt.pojavlaunch.LauncherActivity"
             android:label="@string/app_short_name"
