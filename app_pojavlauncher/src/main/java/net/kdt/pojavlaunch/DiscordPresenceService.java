@@ -48,11 +48,11 @@ public final class DiscordPresenceService extends Service {
 
         switch (intent.getAction()) {
             case ACTION_BROWSING:
-                nativeUpdatePresence("Browsing CryonixLauncher V4", "Launcher");
+                nativeUpdatePresence("Browsing CryonixLauncher", "Launcher");
                 break;
             case ACTION_PLAYING:
                 String version = intent.getStringExtra(EXTRA_VERSION);
-                nativeUpdatePresence("Playing CryonixLauncher V4",
+                nativeUpdatePresence("Playing CryonixLauncher",
                         version == null || version.trim().isEmpty()
                                 ? "Minecraft" : "Minecraft " + version.trim());
                 break;
