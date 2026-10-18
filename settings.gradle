@@ -21,3 +21,8 @@ include ':forge_installer'
 include ':glfw:jni_bindings'
 include ':mojoexec:jni_bindings'
 include ':sdl:jni_bindings'
+
+// The native submodules live inside the app's JNI source directory.
+project(':glfw:jni_bindings').projectDir = file('app_pojavlauncher/src/main/jni/glfw/jni_bindings')
+project(':mojoexec:jni_bindings').projectDir = file('app_pojavlauncher/src/main/jni/mojoexec/jni_bindings')
+project(':sdl:jni_bindings').projectDir = file('app_pojavlauncher/src/main/jni/sdl/jni_bindings')
