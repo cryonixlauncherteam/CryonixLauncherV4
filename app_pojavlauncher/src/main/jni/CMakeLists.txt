@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.22.1)
 # ------ MojoExec ------
 
 add_subdirectory(mojoexec)
+# Expose GNU CPU affinity APIs (cpu_set_t, CPU_ZERO, sched_setaffinity) on Android NDK.
+target_compile_definitions(mojoexec PRIVATE _GNU_SOURCE)
 
 # ------   GLFW   ------
 
