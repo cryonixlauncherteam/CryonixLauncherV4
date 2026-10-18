@@ -124,6 +124,7 @@ public class GameActivity extends BaseActivity implements ControlButtonMenuListe
             finish();
             return;
         }
+        DiscordPresenceService.update(this, DiscordPresenceService.ACTION_PLAYING, instance.versionId);
         mGameRenderer = new GameRenderer(instance.getLaunchRenderer());
 
         if(GpuUtils.getGlInfo().isAdreno() && !PREF_ZINK_PREFER_SYSTEM_DRIVER) {
@@ -362,6 +363,7 @@ public class GameActivity extends BaseActivity implements ControlButtonMenuListe
 
     @Override
     protected void onDestroy() {
+        DiscordPresenceService.update(this, DiscordPresenceService.ACTION_BROWSING, null);
         super.onDestroy();
         ContextExecutor.clearActivity();
     }
