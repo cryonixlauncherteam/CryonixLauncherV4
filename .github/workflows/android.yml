@@ -68,7 +68,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          APK="app_pojavlauncher/build/outputs/apk/full/debug/app_pojavlauncher-full-debug.apk"
+          APK="out/app-debug-full.apk"
           test -s "$APK"
           unzip -t "$APK"
           SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-$HOME/Android/Sdk}}"
@@ -95,7 +95,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: CryonixLauncher-V4-Debug.apk
-          path: out/CryonixLauncher-V4-Debug.apk
+          path: |
+            out/CryonixLauncher-V4-Debug.apk
             out/CryonixLauncher-V4-Debug.sha256
             out/CryonixLauncher-V4-Debug.md5
 
@@ -150,7 +151,7 @@ jobs:
           mv app_pojavlauncher/build/outputs/apk/full/pubRelease/app_pojavlauncher-full-pubRelease.apk out/MojoLauncher-release.apk
       - name: Gen md5sums
         run: |
-          md5sum out/app-debug-full.apk > out/app-debug-full.md5
+          md5sum out/CryonixLauncher-V4-Debug.apk > out/CryonixLauncher-V4-Debug.md5
           md5sum out/app-debug-noruntime.apk > out/app-debug-noruntime.md5
 
       - name: Upload Debug APK
