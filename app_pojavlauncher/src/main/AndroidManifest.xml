@@ -54,7 +54,7 @@
             android:exported="true"
             android:label="@string/app_short_name"
             android:launchMode="singleTop"
-            android:screenOrientation="sensorLandscape">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,7 +64,7 @@
         <activity
             android:name="net.kdt.pojavlaunch.LauncherActivity"
             android:label="@string/app_short_name"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name="net.kdt.pojavlaunch.ImportControlActivity"
@@ -101,12 +101,12 @@
             android:process=":gui_installer"
             android:name="net.kdt.pojavlaunch.awt.AWTActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|keyboard|navigation|uiMode"
-            android:screenOrientation="sensorLandscape" />
+            android:screenOrientation="landscape" />
         <activity
             android:name="net.kdt.pojavlaunch.CustomControlsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard|navigation"
             android:exported="false"
-            android:screenOrientation="sensorLandscape">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name=".CustomControlsActivity" />
 
@@ -118,7 +118,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|keyboard|navigation|uiMode"
             android:launchMode="singleTop"
             android:process=":game"
-            android:screenOrientation="sensorLandscape" />
+            android:screenOrientation="landscape" />
 
         <provider
             android:name="net.kdt.pojavlaunch.scoped.FolderProvider"
