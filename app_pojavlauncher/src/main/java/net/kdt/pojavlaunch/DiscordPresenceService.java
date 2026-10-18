@@ -52,9 +52,9 @@ public final class DiscordPresenceService extends Service {
                 break;
             case ACTION_PLAYING:
                 String version = intent.getStringExtra(EXTRA_VERSION);
-                nativeUpdatePresence("Playing Minecraft",
+                nativeUpdatePresence("Playing CryonixLauncher V4",
                         version == null || version.trim().isEmpty()
-                                ? "Minecraft" : "Version " + version.trim());
+                                ? "Minecraft" : "Minecraft " + version.trim());
                 break;
             case ACTION_CLEAR:
                 nativeClearPresence();
